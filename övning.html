@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            font-size: 2rem;
+            display: grid;
+            place-items: center;
+        }
+
+        button {
+            font-family: sans-serif;
+            font-size: 2rem;
+            padding: 1rem;
+        }
+        #notification {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="clicker-button" type="button">Jag vet att du vill...</button>
+    <p id="counter">Klicks: 0</p>
+    <p id="notification">Wow, du har klickat 100 gånger</p>
+
+    <script>
+        let clicks = 0
+        const counter = document.querySelector("#counter")
+        const button = document.querySelector("#clicker-button")
+        const notification = document.querySelector("#notification")
+        button.addEventListener("click", (event) => {
+            clicks += 1
+            console.log("Du har klickat:", clicks)
+            button.textContent = ("Ha jag visste det!")
+            counter.textContent = ("Klicks: " + clicks)
+            if (clicks == 10) {
+                notification.style.display = "block"
+                setTimeout(function() {
+                    notification.style.display = "None"
+                }, 5000)
+            }
+
+        })
+
+    </script>
+</body>
+</html>

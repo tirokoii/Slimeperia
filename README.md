@@ -1,60 +1,94 @@
-# Clicker, webbprojekt
+## Vad ska spelet handla om?
+- Spelet ska handla om en entusiastisk och isolerad slime skapare, en forskare vid namn Ge-roger Emilsson. Han bygger och köper utrustning för att skapa det bästa slimet som går. För att skapa slime behöver han energi och den få han ifrån att trycka på en grön knapp för att skapa en elektrisk våg genom kablarna som är kopplad till maskinerna.
 
-Du har fått i uppdrag att designa och skapa ett clicker-spel från Kakmonstret AB.
-Till ditt förfogande har du lite kod som en tidigare anställd lämnat efter sig, använd den.
+### Hur fungerar det?
+- Samla smilings för att kunna köpa mer utrustning och upgradera den man redan har. Den kommer att ha uppgraderingar som kommer kunna köpas eftersom (när milstolpar har nåtts). Sedan kommer det finnas utrustning som man kommer kunna köpa.
 
-En clicker, eller mer specifikt en cookie-clicker är ett spel, läs mer [här](https://en.wikipedia.org/wiki/Cookie_Clicker)
+För varje slime får man en vis mängd smilings
 
-## Uppgift
+Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över världen (för tillfället). 
+- Ge-roger's mål är att ta över världen med slime, genom att ha små mikro organismer i dem som han kan kontrollera!
+- Syftet är att skapa och sälja så mycket slimes som möjligt och efter att ha nått en milstolpe mycket antiklimaktiskt ta över världen.
+### Vilka uppgraderingar finns att köpa?
+#### Nya slimes (nya mikro organismer att blanda i slimet) - Skrap
+- Transparant slime - Start (inga mikro organsimer(nästan))
+- Grön slime
+- Röd slime
+- Blå slime
+- Lila slime
 
-Du ska designa och skapa ett clickerspel. Den grundläggande javascriptskoden, samt viss html finns i detta repo. Målet är inte att koda själva spelfunktionerna, men du är välkommen att ändra i koden för att passa ditt tema och upplägg.
+#### Större och mer avancerade maskiner - Keep
+- Mixer (smet mixer)
+- Slime blandare (cement blandare (liten))
+- Modifierad mixer
+- Bladblandare (bladblandare)
+- Modifierad slime blandare
+- Stor slime blandare (cement bil (modifierad))
+- Slime fabrik (Sista steget)
 
-Fokuset är att prova på javascript.
-Du ska även utveckla din egen klicker-ide (design) eller bygga vidare på den som finns för att ha ett material att arbeta med.
-Så börja med att planera ditt tema.
+#### Upgraderingar för hur mycket slimet är värt - Keep?
+- 1 slime = 10 smilings
+- 1 slime = 100 smilings
+- 1 slime = 500 smilings
+- 1 slime = 1000 smilings
+- +10% value
+- +25% value
+- +50% value
+- +75% value
+- +100% value
 
--   Vad ska spelet handla om?
--   Hur fungerar det?
-    -   Valuta
-    -   Syfte
--   Vilka uppgraderingar ska gå att köpa?
--   Achievement eller milstolpar?
+#### En automatisk avtryckare för den gröna knappen (och upgraderingar till den)
+- Avtryckare i form av en blixt (köpa max 100st)
+- +10% speed
+- +20% speed
+- +30% speed
+- +80% speed
+- +100% speed
+- +1200% speed
 
-När du har skrivit ned och bestämt detta så, skapa en logga, designa en knapp, planera spelets layout.
-Skissa med Figma om du vill. Men du ska skriva ned och anteckna.
 
--   Färger
--   Bilder
--   Typsnitt
--   Layout
--   Animationer
+### Achievements eller milstolpar
+#### Major achievement
+- Ta över världen (Slimeperium)
+- Sälj 100000 slimes (Nu börjar du bli lite girig)
+- Sälj 1000000000 slimes (Kapitalism)
+- Bygg din första ... (Stor byggarn)
+#### Minor
+- Sälj 1 slime (En otydlig start) 
+- Sälj 10 slime (Nu börjar det likna något)
+- Sälj 100 slime (På väg)
+- Sälj 10000 slime (Slime doctor)
+- Köp alla maskiner (Tillbaka till fabriken)
+- Köp din första maskin (Galen vetenskaps man)
+- köp 10 st maskiner (10 steg närmare värld domination)
+... Exempelvis
 
-## Material
+## Design
+### Färger
+- Grön
+- Blå (Cyan)
+- Grå
+- Svart
+- Vit
 
-Forka detta repo och arbeta i det. Det finns ganska mycket att utgå ifrån och ändra på så en stor del är att förstå koden du har fått.
-Vad vaksam på att javascript koden använder klasser och id för att välja element, så om du ändrar på dom så måste du ändra i javascriptet också.
+### Bilder
+- Simplistiska illustartioner (cellshading)
+- Tech-iga
+### Typsnitt
+- Monospaced
+- Sans serif
 
-## Dokumentering
+#### Känsla
+- Framtida
+- Tech-igt1
 
-Spara ditt planerings / skiss-material i en mapp i detta repo (dokumentation).
-Länka till Figma om du använt det.
-Skriv kort ned vad du arbetar med i anteckningar.md
+### Layout
+- Likt cookie clicker
+- boxigt.
 
-Vi kommer att skriva post mortem när vi är klara, pm.md.
-
-## Kravspec
-
--   Fungerande Clicker med eget tema och design **utifrån planering**.
--   Använder javascript.
--   Inga fel, validerande html / css.
--   Anpassade och redigerade bilder.
--   Hosting på GitHub pages.
--   Material ni får dela, undersök licenser.
-
-## Tid och övrigt
-
-Se classroom.
-
-GLHF!
-
-Tack [Malte](https://github.com/Mafrans) för lite ideér.
+#### Animationer
+- Clicka på knappen (rör sig up och ned)
+- Ljus från utrustning i rum?
+- Ljus från blixtarna (när de går)
+- 
+- 
