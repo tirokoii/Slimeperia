@@ -63,13 +63,38 @@
             </div>
             <div class="vertical-divider"></div>
             <div class="container-right">
-                <h3>STORE</h3>
-                <div class="horizontal-divider"></div>
-                <div class="upgrades">
-                    <div id="grid">
-                        16
-                    </div>
+                <div class="store-text">
+                    <h3>STORE</h3>
                 </div>
+                <div class="horizontal-divider"></div>
+                <div class="upgrade-text">
+                    <p id="green-slime-text">Kostand: 100 smilings <br> +10 smilings per slime</p>
+                    <p id="red-slime-text">Kostand: 1000 smilings <br> +100 smilings per slime</p>
+                    <p id="blue-slime-text">Kostnad: 2000 smilings <br> +1000 smilings per slime</p>
+                    <p id="purple-slime-text">Kostnad: 20000 smilings <br> +10000 smilings per slime</p>
+                    <p id="coin-one-text">Kostnad: 500 smilings <br> +10% högre värde på slime</p>
+                    <p id="coin-two-text">Kostnad: 1000 smilings <br> +15% högre värde på slime</p>
+                    <p id="coin-three-text">Kostnad: 2000 smilings <br> +20% högre värde på slime</p>
+                    <p id="coin-four-text">Kostnad: 6000 smilings <br> +50% högre värde på slime</p>
+                    <p id="speed-one-text">Kostnad: 100 smilings <br> +10% snabbare auto-click</p>
+                    <p id="speed-two-text">Kostand: 1000 smilings <br> +20% snabbare auto-click</p>
+                    <p id="speed-three-text">Kostand: 5000 smilings <br> +50% snabbare auto-click</p>
+                    <p id="speed-four-text">Kostnad: 100000 smilings <br> +100% snabbare auto-click</p>
+                </div>
+                    <ul class="upgrades">
+                        <li id="green-slime"></li>
+                        <li id="red-slime"></li>
+                        <li id="blue-slime"></li>
+                        <li id="purple-slime"></li>
+                        <li id="one-smiling"></li>
+                        <li id="hundred-smilings"></li>
+                        <li id="five-hundred-smilings"></li>
+                        <li id="thousand-smilings"></li>
+                        <li id="speed-upgrade-one"></li>
+                        <li id="speed-upgrade-two"></li>
+                        <li id="speed-upgrade-three"></li>
+                        <li id="speed-upgrade-four"></li>
+                    </ul>
                 <div class="horizontal-divider"></div>
                 <div id="machines">
                     <div id="one">
@@ -86,4 +111,8 @@
         </article>
     </main>
 </body>
+<script>
+    const greenSlime = document.querySelector('#green-slime')
+    const greenSlimeText = document.querySelector('#green-slime-text')
+</script>
 </html>

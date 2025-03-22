@@ -10,12 +10,12 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Ge-roger's mål är att ta över världen med slime, genom att ha små mikro organismer i dem som han kan kontrollera!
 - Syftet är att skapa och sälja så mycket slimes som möjligt och efter att ha nått en milstolpe mycket antiklimaktiskt ta över världen.
 ### Vilka uppgraderingar finns att köpa?
-#### Nya slimes (nya mikro organismer att blanda i slimet) - Skrap
+#### Nya slimes (nya mikro organismer att blanda i slimet)
 - Transparant slime - Start (inga mikro organsimer(nästan))
-- Grön slime
-- Röd slime
-- Blå slime
-- Lila slime
+- Grön slime +10 simlings
+- Röd slime + 100 simlings
+- Blå slime + 1000 simlings
+- Lila slime + 10000 simlings
 
 #### Större och mer avancerade maskiner - Keep
 - Mixer (smet mixer)
@@ -26,25 +26,18 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Stor slime blandare (cement bil (modifierad))
 - Slime fabrik (Sista steget)
 
-#### Upgraderingar för hur mycket slimet är värt - Keep?
-- 1 slime = 10 smilings
-- 1 slime = 100 smilings
-- 1 slime = 500 smilings
-- 1 slime = 1000 smilings
-- +10% value
-- +25% value
-- +50% value
-- +75% value
-- +100% value
+#### Upgraderingar för hur mycket slimet är värt - Keep
+- 1 slime = + 10% smilings
+- 1 slime = + 15% smilings
+- 1 slime = + 20% smilings
+- 1 slime = + 50% smilings
 
 #### En automatisk avtryckare för den gröna knappen (och upgraderingar till den)
 - Avtryckare i form av en blixt (köpa max 100st)
-- +10% speed
+- +10% speed 
 - +20% speed
-- +30% speed
-- +80% speed
+- +50% speed
 - +100% speed
-- +1200% speed
 
 
 ### Achievements eller milstolpar
