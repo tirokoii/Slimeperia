@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Bytesized&family=Kode+Mono:wght@400..700&family=Press+Start+2P&family=Rubik+Mono+One&display=swap');
+
+:root {
+    --color-dark: #060606;
+    --color-blue: #00426D;
+    --color-dark-green: #0C8E8E;
+    --color-middle-green: #39CAAB;
+    --color-light-green: #A1FF95;
+    --color-glowing-green: #00FFC8;
+    --color-light: #FFFFFF;
+}
+
+.game {
+    display: flex;
+}
+
+body {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    overflow: hidden;
+}
+
+.container-left {
+    width: 60ch;
+    justify-items: center;
+    margin-top: 4ch;
+}
+
+h1 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 100;
+    width: 21ch;
+    height: 4ch;
+    background: url('../img/name-text-holgrafik-effect.png');
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    align-content: center;
+}
+
+.button-box {
+    width: 50ch;
+    justify-items: center;
+}
+
+#game-button {
+    margin-top: 4.6ch;
+    width: 30ch;
+    height: 30ch;
+    background: url('../img/green-button.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#floating-ring {
+    width: 40ch;
+    height: 40ch;
+    background: url('../img/holografik-effect-button.png');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    align-content: center;
+    justify-items: center;
+    margin-bottom: 7.5ch;
+    margin-top: 5ch;
+}
+
+.rod {
+    width: 1.5ch;
+    height: 16ch;
+    background: url('../img/rod.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    justify-content: center;
+}
+
+img{
+    width: 5ch;
+    height: auto;
+}
+
+.charges-box {
+    width: 60ch;
+    height: 30ch;
+    background: url('../img/bolt-background.png');
+    background-size: cover;
+    background-position: center;
+    align-content: center;
+    justify-items: center;
+}
+
+.bolt-rows {
+    width: 30ch;
+    display: flex;
+    gap: 4ch;
+    justify-content: center;
+    margin-top: 1ch;
+}
+
+.bolts {
+    margin-top: 3ch;
+}
+
+.vertical-divider {
+    width: 1.8ch;
+    height: auto;
+    background: url('../img/container-one-seperator.png');
+    background-size: contain;
+    z-index: 2;
+}
+
+.container-middle {
+    width: 90ch;
+}
+
+.stats {
+    font-family: "Kode Mono", monospace;
+    width: 60ch;
+    height: 18ch;
+    background: url('../img/stats-holografik-effect.png');
+    background-size:contain;
+    background-position: center;
+    align-content: center;
+    justify-self: center;
+    margin-block: 1ch;
+}
+
+.stats h2 {
+    margin-left: 3ch;
+    line-height: 3.5ch;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+}
+
+.stats-divider {
+    width: 100%;
+    height: 3ch;
+    background: url('../img/container-two-stats-divider.png');
+    background-size:contain;
+    background-position: center;
+    align-content: center;
+    justify-self: center;
+}
+
+.map {
+    display: flex;
+}
+
+#map-part-one {
+    width: 35.1ch;
+    height: 30ch;
+    background: url('../img/map-part-one.png');
+    background-size:contain;
+    background-position: center;
+}
+
+#map-part-two {
+    width: 35ch;
+    height: 18ch;
+    background: url('../img/map-part-two.png');
+    background-size:contain;
+    background-position: center;
+    margin-inline: 2.5ch;
+}
+
+#map-part-three {
+    width: 19.7ch;
+    height: 40ch;
+    background: url('../img/map-part-three.png');
+    background-size:contain;
+    background-position: center;
+}
+
+#map-part-four {
+    width: 40ch;
+    height: 35.6ch;
+    background: url('../img/map-part-four.png');
+    background-size:contain;
+    background-position: center;
+    margin-left: 25ch;
+    margin-top: 4ch;
+}
+
+.container-right {
+    width: 51ch;
+    height: auto;
+    margin-top: 2ch;
+}
+
+h3 {
+    width: 6ch;
+    height: 3.2ch;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 3rem;
+    background: url('../img/store-holografik-effect.png');
+    background-size:contain;
+    justify-self: center;
+    text-align: center;
+    align-content: center;
+}
+
+.horizontal-divider {
+    width: auto;
+    height: 3.2ch;
+    background: url('../img/container-three-divider.png');
+    background-size:contain;
+    margin-top: 2ch;
+}
+
+.upgrades {
+    width: auto;
+    height: 21ch;
+    background: url('../img/upgrades-grid.png');
+    background-size:contain; 
+}
