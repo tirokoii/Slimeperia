@@ -18,13 +18,13 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Lila slime + 10000 simlings
 
 #### Större och mer avancerade maskiner - Keep
-- Mixer (smet mixer)
-- Slime blandare (cement blandare (liten))
-- Modifierad mixer
-- Bladblandare (bladblandare)
-- Modifierad slime blandare
-- Stor slime blandare (cement bil (modifierad))
-- Slime fabrik (Sista steget)
+- Mixer (smet mixer) - 10 s
+- Slime blandare (cement blandare (liten)) - 100 s
+- Modifierad mixer - 500 s
+- Bladblandare (bladblandare) - 1000 s
+- Modifierad slime blandare - 2000 s
+- Stor slime blandare (cement bil (modifierad)) 5000 s
+- Slime fabrik (Sista steget) 100000 s
 
 #### Upgraderingar för hur mycket slimet är värt - Keep
 - 1 slime = + 10% smilings
@@ -43,14 +43,14 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 ### Achievements eller milstolpar
 #### Major achievement
 - Ta över världen (Slimeperium)
-- Sälj 100000 slimes (Nu börjar du bli lite girig)
-- Sälj 1000000000 slimes (Kapitalism)
+- Gör 100000 slimes (Nu börjar du bli lite girig)
+- Gör 1000000000 slimes (Kapitalism)
 - Bygg din första ... (Stor byggarn)
 #### Minor
-- Sälj 1 slime (En otydlig start) 
-- Sälj 10 slime (Nu börjar det likna något)
-- Sälj 100 slime (På väg)
-- Sälj 10000 slime (Slime doctor)
+- Gör 1 slime (En otydlig start) 
+- Gör 10 slime (Nu börjar det likna något)
+- Gör 100 slime (På väg)
+- Gör 10000 slime (Slime doctor)
 - Köp alla maskiner (Tillbaka till fabriken)
 - Köp din första maskin (Galen vetenskaps man)
 - köp 10 st maskiner (10 steg närmare värld domination)

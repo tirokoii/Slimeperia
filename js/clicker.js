@@ -37,23 +37,43 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievements = [
     {
-        description: 'Museet är redo att öppna, grattis! ',
+        description: 'Stor byggarn',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något, fortsätt gräva!',
-        requiredUpgrades: 10,
+        description: 'Galen vetenskaps man',
+        requiredUpgrades: 100,
         acquired: false,
     },
     {
-        description: 'Klickare, med licens att klicka!',
-        requiredClicks: 10,
+        description: 'Tillbaka till fabriken',
+        requiredUpgrades: 1000,
         acquired: false,
     },
     {
-        description: 'Tac-2 god!',
+        description: 'En otydlig start',
+        requiredClicks: 1,
+        acquired: false,
+    },
+    {
+        description: 'Nu börjar det likna något!',
+        requiredClicks: 100,
+        acquired: false,
+    },
+    {
+        description: 'En väg byggd av slime',
+        requiredClicks: 1000,
+        acquired: false,
+    },
+    {
+        description: 'Slime doctor',
         requiredClicks: 10000,
+        acquired: false,
+    },
+    {
+        description: 'Nu börjar du bli girig',
+        requiredClicks: 10001,
         acquired: false,
     },
 ];
@@ -163,23 +183,34 @@ window.addEventListener('load', (event) => {
  */
 upgrades = [
     {
-        name: 'Sop',
+        name: 'Grön slime',
         cost: 10,
         amount: 1,
     },
     {
-        name: 'Kvalitetsspade',
+        name: 'Mixer',
         cost: 50,
         clicks: 2,
     },
+    
     {
-        name: 'Skottkärra',
+        name: 'Blå slime',
         cost: 100,
-        amount: 10,
+        clicks: 10,
     },
     {
-        name: 'Grävmaskin',
+        name: 'Lila slime',
+        cost: 500,
+        clicks: 10,
+    },
+    {
+        name: 'Slime blandare',
         cost: 1000,
+        amount: 100,
+    },
+    {
+        name: 'Bladblandare',
+        cost: 1500,
         amount: 100,
     },
 ];
@@ -213,14 +244,14 @@ function createCard(upgrade) {
     } else {
         header.textContent = `${upgrade.name}, +${upgrade.clicks} per klick.`;
     }
-    cost.textContent = `Köp för ${upgrade.cost} benbitar.`;
+    cost.textContent = `Köp för ${upgrade.cost} smilings`;
 
     card.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
-            cost.textContent = 'Köp för ' + upgrade.cost + ' benbitar';
+            cost.textContent = 'Köp för ' + upgrade.cost + ' smilings';
             moneyPerSecond += upgrade.amount ? upgrade.amount : 0;
             moneyPerClick += upgrade.clicks ? upgrade.clicks : 0;
             message('Grattis du har köpt en uppgradering!', 'success');

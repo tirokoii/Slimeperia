@@ -45,8 +45,9 @@
                 <div class="stats">
                     <ul>
                         <li id="money">Börs: 0</li>
-                        <li id="slime-amount">Slime: 0</li>
                         <li id="sold-slimes">Solda slimes: 0</li>
+                        <li id="sps">Slimes per second: 0</li>
+                        <li id="spc">Slimes per clicks: 1</li>
                     </ul>
                 </div>
                 <div class="stats-divider"></div>
@@ -68,18 +69,6 @@
                 </div>
                 <div class="horizontal-divider"></div>
                 <div class="upgrade-text">
-                    <p id="green-slime-text">Kostand: 100 smilings <br> +10 smilings per slime</p>
-                    <p id="red-slime-text">Kostand: 1000 smilings <br> +100 smilings per slime</p>
-                    <p id="blue-slime-text">Kostnad: 2000 smilings <br> +1000 smilings per slime</p>
-                    <p id="purple-slime-text">Kostnad: 20000 smilings <br> +10000 smilings per slime</p>
-                    <p id="coin-one-text">Kostnad: 500 smilings <br> +10% högre värde på slime</p>
-                    <p id="coin-two-text">Kostnad: 1000 smilings <br> +15% högre värde på slime</p>
-                    <p id="coin-three-text">Kostnad: 2000 smilings <br> +20% högre värde på slime</p>
-                    <p id="coin-four-text">Kostnad: 6000 smilings <br> +50% högre värde på slime</p>
-                    <p id="speed-one-text">Kostnad: 100 smilings <br> +10% snabbare auto-click</p>
-                    <p id="speed-two-text">Kostand: 1000 smilings <br> +20% snabbare auto-click</p>
-                    <p id="speed-three-text">Kostand: 5000 smilings <br> +50% snabbare auto-click</p>
-                    <p id="speed-four-text">Kostnad: 100000 smilings <br> +100% snabbare auto-click</p>
                 </div>
                     <ul class="upgrades">
                         <li id="green-slime"></li>
@@ -96,23 +85,224 @@
                         <li id="speed-upgrade-four"></li>
                     </ul>
                 <div class="horizontal-divider"></div>
-                <div id="machines">
-                    <div id="one">
+                <div class="machines">
+                    <div id="mixer">
                         <h4>Mixer</h4>
                         <p>Ett fantastiskt sätt att mixa din slime på</p>
                         <p id="amount-mixer">0</p>
                     </div>
-                    <div id="two">
+                    <div class="machine-horizontal-divider"></div>
+                    <div id="slime-blandare">
+                        <h4>Slime blandare</h4>
                         <p>Ett ännu bättre sätt att blanda slime på</p>
                         <p id="amount-slime-blandare">0</p>
                     </div>
+                    <div class="machine-horizontal-divider"></div>
+                    <div id="modified-mixer">
+                        <h4>Modifierad mixer</h4>
+                        <p>En modifierad variant av den första</p>
+                        <p id="amount-modified-mixer">0</p>
+                    </div>
+                    <div class="machine-horizontal-divider"></div>
+                    <div id="modifierad-slime-blandare">
+                        <h4>Modifierad slime blandare</h4>
+                        <p>En mycket mycket bättre version av den första</p>
+                        <p id="amount-modified-mixer">0</p>
+                    </div>
+                    <div class="machine-horizontal-divider"></div>
+                    <div id="blandblandare">
+                        <h4>Bladblandare</h4>
+                        <p>Hur fungerar ens det?</p>
+                        <p id="amount-blandblandare">0</p>
+                    </div>
+                    <div class="machine-horizontal-divider"></div>
+                    <div id="modifierad-bladblandare">
+                        <h4>Modifierad bladblandare</h4>
+                        <p>Ett fantastiskt alternativ för att blanda</p>
+                        <p id="amount-blandblandare">0</p>
+                    </div>
+                    <div class="machine-horizontal-divider"></div>
                 </div>
             </div>
+            <div id="msgbox"></div>
         </article>
     </main>
 </body>
 <script>
+    let money = 0
+    let ss = 0
+    let bonus = 0
+    let moneyPerClick = 1
+    let moneyPerSecond = 0
+    let numberOfClicks = 0
+    let last = 0
+    let acquiredUpgrades = 0
+    let active = false
+
+    let upgrades = [
+        {
+            kostnad: 'Kostand: 100 smilings',
+            description: '+10 smilings per slime'
+        },
+        {
+            kostnad: 'Kostand: 1000 smilings',
+            description: '+100 smilings per slime'
+        },
+        {
+            kostnad: 'Kostnad: 1500 smilings',
+            description: '+1000 smilings per slime'
+        },
+        {
+            kostnad: 'Kostnad: 2000 smilings',
+            description: '+10000 smilings per slime'
+        },
+        {
+            kostnad: 'Kostnad: 500 smilings',
+            description: '+10% högre värde på slime'
+        },
+        {
+            kostnad: 'Kostnad: 1000 smilings',
+            description: '+15% högre värde på slime'
+        },
+        {
+            kostnad: 'Kostnad: 2000 smilings',
+            description: '+20% högre värde på slime'
+        },
+        {
+            kostnad: 'Kostnad: 100 smilings',
+            description: '+10% snabbare auto-click'
+        },
+        {
+            kostnad: 'Kostand: 1000 smilings',
+            description: '+20% snabbare auto-click'
+        },
+        {
+            kostnad: 'Kostand: 5000 smilings',
+            description: '+50% snabbare auto-click'
+        },
+        {
+            kostnad: 'Kostnad: 100000 smilings',
+            description: '+100% snabbare auto-click'
+        },
+    ]
+
+    let achievements = [
+        {
+            description: '...',
+            requiredUpgrades: 1,
+            acquired: false
+        },
+        {
+            description: '+++',
+            requiredClicks: 1,
+            acquired: false
+        }
+
+    ]
+    const clickerButton = document.querySelector('#game-button')
+    const moneyTracker = document.querySelector('#money')
+    const slimeTracker = document.querySelector('#slime-amount')
+    const ssTracker = document.querySelector('#sold-slimes')
+    const spsTracker = document.querySelector('#sps')
+    const spcTracker = document.querySelector('#spc')
+    const msgbox = document.querySelector('#msgbox')
+
     const greenSlime = document.querySelector('#green-slime')
-    const greenSlimeText = document.querySelector('#green-slime-text')
+
+    clickerButton.addEventListener("click", (event) => {
+        'click',
+        () => {
+            money += moneyPerClick
+            numberOfClicks += 1
+            console.log(clicker.score)
+        }
+        false
+    })
+
+    function step(timestamp) {
+        moneyTracker.textContent = ('Börs: ' + Math.round(money))
+        ssTracker.textContent = ('Solda slimes: ' + ss)
+        spsTracker.textContent = ('Slimes per second: ' + moneyPerSecond)
+        spcTracker.textContent = ('Slimes per clicks' + moneyPerClick)
+
+        if (timestamp >= last + 1000) {
+            money += moneyPerSecond
+            last = timestamp
+        }
+
+        if (moneyPerSecond > 0 && !active) {
+            mpsTracker.classList.add('active')
+            active = true
+        }
+
+        achievements = achievements.filter((achievement) => {
+            if(achievement.acquired) {
+                return false
+            }
+            if (
+                achievement.acquiredUpgrades &&
+                acquiredUpgrades >= achievement.requiredUpgrades
+            ) {
+                achievement.acquired = true
+                message(achievement.description, 'achievement')
+                return false
+            } else if (
+                achievement.requiredClicks &&
+                numberOfClicks >= achievement.requiredClicks
+            ) {
+                achievement.acquired = true
+                message(achievement.description, 'achievement')
+                return false
+            }
+            return true
+        })
+        window.requestAnimationFrame(step)
+    }
+
+    window.addEventListener('load', (event) => {
+        upgrades.forEach((upgrade) => {
+            upgradeList.appendChild(createCard(upgrade))
+        })
+        window.requestAnimationFrame(step)
+    })
+
+    upgrades = [
+        {
+            name: 'Mixer',
+            cost: 10,
+            amount: 5
+        },
+        {
+            name: 'Slime blandare',
+            cost: 100,
+            amount: 50
+        },
+        {
+            name: 'Modifierad mixer',
+            cost: 500,
+            amount: 100
+        },
+        {
+            name: 'Bladblandare',
+            cost: 1000,
+            amount: 300
+        },
+        {
+            name: 'Modifierad slime blandare',
+            cost: 2000,
+            amount: 1000
+        },
+        {
+            name: 'Modifierad bladblandare',
+            cost: 4500,
+            amount: 2000
+        },
+    ]
+
+    card.addEventListener('click', (e) => {
+        if (money >= upgrade.cost) {
+            
+        }
+    })
 </script>
 </html>
