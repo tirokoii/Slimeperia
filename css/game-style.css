@@ -211,6 +211,7 @@ li {
 }
 
 h3 {
+    font-family: "Kode Mono", monospace;
     width: 6ch;
     height: 3.2ch;
     font-family: "Press Start 2P", system-ui;
@@ -236,7 +237,7 @@ h3 {
 .upgrades {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 10ch;
+    grid-template-rows: 9ch;
     height: 30.5ch;
     width: 100%;
     border: 1.2ch solid var(--color-blue);
@@ -251,128 +252,18 @@ h3 {
     margin: 0;
 }
 
-#green-slime {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/green-slime.png');
-    background-size:contain;
+.item {
+    width: 10ch;
+    height: auto;
+    background-image: url('../img/green-slime.png');
+    background-size: contain;
     background-position: center;
-    align-self: center;
+    justify-content: space-around;
+    justify-items: center;
 }
 
-#red-slime {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/red-slime.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center;
-}
-
-#blue-slime {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/blue-slime.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center;
-}
-
-#purple-slime {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/purple-slime.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center;
-}
-
-#one-smiling {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/1-smiling.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#hundred-smilings {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/10-smiling.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#five-hundred-smilings {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/100-smiling.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#thousand-smilings {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/1000-smiling.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#speed-upgrade-one {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/speed-one.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#speed-upgrade-two {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/speed-two.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#speed-upgrade-three {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/speed-three.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#speed-upgrade-four {
-    width: 5ch;
-    height: 5ch;
-    background: url('../img/speed-four.png');
-    background-size:contain;
-    background-position: center;
-    align-self: center; 
-}
-
-#green-slime:hover, 
-#red-slime:hover,
-#blue-slime:hover,
-#purple-slime:hover,
-#one-smiling:hover,
-#hundred-smilings:hover,
-#five-hundred-smilings:hover,
-#thousand-smilings:hover,
-#speed-upgrade-one:hover,
-#speed-upgrade-two:hover,
-#speed-upgrade-three:hover,
-#speed-upgrade-four:hover {
-    width: 110%;
-    height: 77%;
+.item:hover {
+    background-size: 11ch;
 }
 
 .upgrade-text {
@@ -498,31 +389,6 @@ h3 {
     height: 1ch;
     background: url('../img/container-three-divider.png');
     background-size:contain;
-}
-
-#msgbox {
-    position: fixed;
-    right: 2vmin;
-    bottom: 2vmin;
-    min-width: 16rem;
-}
-
-#msgbox > p {
-    margin-bottom: var(--space-xs-s);
-    padding: var(--space-xs-s);
-}
-
-.warning {
-    background-color: palevioletred;
-}
-
-.success {
-    background-color: mediumspringgreen;
-}
-
-.achievement {
-    color: var(--color-light);
-    background-color: rebeccapurple;
 }
 
 

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/game-style.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+    <div id="div1">Text above</div>
+</body>
+<script>
+
+    document.body.onload = addElement
+
+    function addElement() {
+        const newDiv = document.createElement('div')
+
+        const newContent = document.createTextNode('Hello there')
+
+        newDiv.appendChild(newContent)
+
+        const currentDiv = document.getElementById('div1')
+        document.body.insertBefore(newDiv, currentDiv)
+    }
+
+    upgrades [
+        {
+            name: 'one',
+            cost: 100
+        },
+        {
+            name: 'two',
+            cost: 200
+        }
+    ]
+    
+</script>
+</html>
