@@ -83,11 +83,6 @@ h1 {
     justify-content: center;
 }
 
-img{
-    width: 6ch;
-    height: auto;
-}
-
 .charges-box {
     width: 60ch;
     height: 30ch;
@@ -137,14 +132,14 @@ img{
 
 .stats h2 {
     margin-left: 3ch;
-    line-height: 3.5ch;
+    line-height: 3ch;
 }
 
 li {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    font-size: 1.3rem;
+    font-size: 1rem;
     margin-left: 3ch;
 }
 
@@ -237,15 +232,15 @@ h3 {
 .upgrades {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 9ch;
+    grid-template-rows: 9.5ch 9ch 9ch;
     height: 30.5ch;
     width: 100%;
     border: 1.2ch solid var(--color-blue);
     background: url('../img/upgrades-grid.png');
     background-size:contain;
     background-position: center;
-    justify-content: space-around;
     justify-items: center;
+    align-items: center;
 }
 
 .upgrades > li {
@@ -255,48 +250,45 @@ h3 {
 .item {
     width: 10ch;
     height: auto;
-    background-image: url('../img/green-slime.png');
-    background-size: contain;
-    background-position: center;
-    justify-content: space-around;
     justify-items: center;
 }
 
-.item:hover {
-    background-size: 11ch;
+.item:hover img {
+    width: 9ch;
 }
 
-.upgrade-text {
+.item:hover .upgrade-text-box{
+    visibility: visible;
+
+}
+
+.upgrade-text-box {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     right: 46ch;
     top: 28ch;
-    width: 45ch;
-    height: 13ch;
+    width: 49ch;
+    height: 15ch;
     background-color: var(--color-dark);
     background: url('../img/dashed-border.png');
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     align-self: center;
-    overflow: hidden;
     visibility: hidden;
 }
 
-#green-slime-text,
-#red-slime-text,
-#blue-slime-text,
-#purple-slime-text,
-#coin-one-text,
-#coin-two-text,
-#coin-three-text,
-#coin-four-text,
-#speed-one-text,
-#speed-two-text,
-#speed-three-text,
-#speed-four-text {
-    margin-left: 4ch;
-    margin-top: 3ch;
+.upgrade-name {
+    margin-left: 3.5ch;
+    margin-top: 2.5ch;
+    font-size: 1.1rem;
     font-family: "Kode Mono", monospace;
-    visibility: hidden;
+}
+
+.upgrade-des-cost {
+    margin-left: 5ch;
+    font-size: 0.8rem;
+    font-family: "Kode Mono", monospace;
 }
 
 .machines {

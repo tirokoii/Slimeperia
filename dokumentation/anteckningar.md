@@ -17,7 +17,7 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Blå slime + 1000 simlings
 - Lila slime + 10000 simlings
 
-#### Större och mer avancerade maskiner - Keep
+#### Större och mer avancerade maskiner
 - Mixer (smet mixer) - 10 s
 - Slime blandare (cement blandare (liten)) - 100 s
 - Modifierad mixer - 500 s
@@ -26,14 +26,14 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Stor slime blandare (cement bil (modifierad)) 5000 s
 - Slime fabrik (Sista steget) 100000 s
 
-#### Upgraderingar för hur mycket slimet är värt - Keep
+#### Upgraderingar för hur mycket slimet är värt
 - 1 slime = + 10% smilings
 - 1 slime = + 15% smilings
 - 1 slime = + 20% smilings
 - 1 slime = + 50% smilings
 
 #### En automatisk avtryckare för den gröna knappen (och upgraderingar till den)
-- Avtryckare i form av en blixt (köpa max 100st)
+- Avtryckare i form av en blixt (köpa max 4st)
 - +10% speed 
 - +20% speed
 - +50% speed
@@ -46,11 +46,15 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Gör 100000 slimes (Nu börjar du bli lite girig)
 - Gör 1000000000 slimes (Kapitalism)
 - Bygg din första ... (Stor byggarn)
+- Tjäna 100000 smilings (Wow, vilken pengakung du är)
 #### Minor
 - Gör 1 slime (En otydlig start) 
 - Gör 10 slime (Nu börjar det likna något)
 - Gör 100 slime (På väg)
 - Gör 10000 slime (Slime doctor)
+- Tjäna 10 smilings (Jag är så stolt)
+- Tjäna 100 smilings (Nu har du överstigit mina förväntningar)
+- Tjäna 1000 smilings (Oj...)
 - Köp alla maskiner (Tillbaka till fabriken)
 - Köp din första maskin (Galen vetenskaps man)
 - köp 10 st maskiner (10 steg närmare värld domination)
@@ -73,7 +77,7 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 
 #### Känsla
 - Framtida
-- Tech-igt1
+- Tech-igt
 
 ### Layout
 - Likt cookie clicker

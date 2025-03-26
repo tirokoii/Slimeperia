@@ -9,7 +9,7 @@
  */
 const clickerButton = document.querySelector('#game-button');
 const moneyTracker = document.querySelector('#money');
-const ss = document.querySelector('#sold-slimes');
+const ss = document.querySelector('#ss'); // sold slimes
 const mpsTracker = document.querySelector('#mps'); // money per slime
 const spcTracker = document.querySelector('#spc'); // slime per click
 const spsTracker = document.querySelector('#sps'); // slime per second
@@ -95,7 +95,7 @@ clickerButton.addEventListener(
     'click',
     () => {
         // vid click öka score med moneyPerClick
-        money += slime * slimePerClick;
+        money += slimePerClick;
         // håll koll på hur många gånger spelaren klickat
         numberOfClicks += 1;
         // console.log(clicker.score);
@@ -178,6 +178,7 @@ window.addEventListener('load', (event) => {
     window.requestAnimationFrame(step);
 });
 
+
 /* En array med upgrades. Varje upgrade är ett objekt med egenskaperna name, cost
  * och amount. Önskar du ytterligare text eller en bild så går det utmärkt att
  * lägga till detta.
@@ -194,69 +195,69 @@ upgrades = [
         amount: 1,
     },
     {
-        name: 'red-slime',
-        image: '../img/red-slime.png',
+        name: 'Röd slime',
+        image: 'red-slime.png',
         cost: 50,
         clicks: 2,
     },
     
     {
         name: 'Blå slime',
-        image: '../img/blue-slime.png',
+        image: 'blue-slime.png',
         cost: 100,
         clicks: 10,
     },
     {
         name: 'Lila slime',
-        image: '../img/purple-slime.png',
+        image: 'purple-slime.png',
         cost: 500,
         clicks: 10,
     },
     {
-        name: 'one-smiling',
-        image: '../img/1-smiling.png',
+        name: 'Mycke pengar',
+        image: '1-smiling.png',
         cost: 1000,
         amount: 100,
     },
     {
-        name: 'hundred-smilings',
-        image: '../img/10-smiling.png',
+        name: 'Mer pengar',
+        image: '10-smiling.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'five-hundred-smilings',
-        image: '../img/10-smiling.png',
+        name: 'Mer pengar 2',
+        image: '100-smiling.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'thousand-smilings',
-        image: '../img/10-smiling.png',
+        name: 'Mäst pengar',
+        image: '1000-smiling.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'speed-upgrade-one',
-        image: '../img/10-smiling.png',
+        name: 'Hastighet grad 1',
+        image: 'speed-one.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'speed-upgrade-two',
-        image: '../img/10-smiling.png',
+        name: 'Hastighet grad 2',
+        image: 'speed-two.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'speed-upgrade-three',
-        image: '../img/10-smiling.png',
+        name: 'Hatsighet grad 3',
+        image: 'speed-three.png',
         cost: 1500,
         amount: 100,
     },
     {
-        name: 'speed-upgrade-four',
-        image: '../img/10-smiling.png',
+        name: 'Hatsighet grad 4',
+        image: 'speed-four.png',
         cost: 1500,
         amount: 100,
     },
@@ -265,7 +266,7 @@ upgrades = [
 machines = [
     {
         name: mixer,
-        image: '',
+        image: 'mixer-png',
         cost: 1,
         amount: 10
     }
@@ -289,25 +290,34 @@ machines = [
  * https://developer.mozilla.org/en-US/docs/Web/API/Node/appendChild
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
  */
+
+
 function createCard(upgrade) {
     const item = document.createElement('div');
     item.classList.add('item');
-    item.style.backgroundImage = "url(upgrade.image)";
-    const header = document.createElement('p');
-    header.classList.add('title');
-    const cost = document.createElement('p');
-    const upgradeImage = document.createElement("img")
-    const img = new Image()
-    img.src = upgrade.image
-    upgradeImage.src = `./img/${upgrade.image}`
-    
+    const upgradeImage = document.createElement("img");
+    const img = new Image();
+    img.src = upgrade.image;
+    upgradeImage.src = `./img/${upgrade.image}`;
+
     item.appendChild(upgradeImage)
+    
+    const textBox = document.createElement('div');
+    textBox.classList.add('upgrade-text-box');
+    const name = document.createElement('p');
+    name.classList.add('upgrade-name');
+    const des = document.createElement('p');
+    des.classList.add('upgrade-des-cost');
+    const cost = document.createElement('p');
+    cost.classList.add('upgrade-des-cost');
+
+    name.textContent = `${upgrade.name}`;
     if (upgrade.amount) {
-        header.textContent = `1`;
+        des.textContent = `+ ${upgrade.amount} per sekund`;
     } else {
-        header.textContent = `2`;
+        des.textContent = `+ ${upgrade.clicks} per clicks`;
     }
-    cost.textContent = `3`;
+    cost.textContent = `Kostnad: ${upgrade.cost} smilings`;
 
     item.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
@@ -322,9 +332,10 @@ function createCard(upgrade) {
             message('Du har inte råd.', 'warning');
         }
     });
-
-    item.appendChild(header);
-    item.appendChild(cost);
+    textBox.appendChild(name);
+    textBox.appendChild(des);
+    textBox.appendChild(cost);
+    item.appendChild(textBox)
     return item;
 }
 
