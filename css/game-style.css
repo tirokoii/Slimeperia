@@ -50,14 +50,21 @@ h1 {
     background: url('../img/green-button.png');
     background-size: cover;
     background-position: center;
+    justify-self: center;
     transition: 0.1s;
 }
 
-#game-button:hover{
+#game-button:hover {
     width: 31ch;
     height: 31ch;
-    margin-top: 4.5ch;
+    margin-bottom: 0.5ch;
     transition: 0.1s;
+}
+
+#game-button:active {
+    width: 29ch;
+    height: 29ch;
+    transition: 0.1s ease-in-out;
 }
 
 #floating-ring {
@@ -115,23 +122,29 @@ h1 {
 }
 
 .container-middle {
-    width: 114ch;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: auto;
 }
 
 .stats {
+    display: flex;
     font-family: "Kode Mono", monospace;
     width: 65ch;
-    height: 19ch;
+    height: 20ch;
     background: url('../img/stats-holografik-effect.png');
     background-size:contain;
     background-position: center;
     align-content: center;
     justify-self: center;
     margin-block: 1ch;
+    gap: 7ch;
 }
 
-.stats h2 {
-    margin-left: 3ch;
+.stats ul {
+    margin-left: 1ch;
+    margin-top: 3.5ch;
     line-height: 3ch;
 }
 
@@ -257,9 +270,35 @@ h3 {
     width: 9ch;
 }
 
-.item:hover .upgrade-text-box{
+.item:hover .upgrade-text-box {
     visibility: visible;
 
+}
+
+.machine-box:hover .upgrade-text-box {
+    visibility: visible;
+    right: 38ch;
+    top: 23.7ch;
+    width: 41ch;
+    height: 12ch;
+}
+
+.machine-box .upgrade-name {
+    width: 20ch;
+}
+
+.machine-box .upgrade-des-cost {
+    width: 20ch;
+    left: 0%;
+}
+
+.machine-box:hover .machine img{
+    height: 17ch;
+    width: 18ch;
+}
+
+.machine-box .upgrade-text-box p{
+    margin-left: 5ch;
 }
 
 .upgrade-text-box {
@@ -291,97 +330,88 @@ h3 {
     font-family: "Kode Mono", monospace;
 }
 
+.amount {
+    float: right;
+}
+
+.machineBox {
+    overflow: hidden;
+}
+
+.machine {
+    height: 15ch;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.machine p, h4{
+    position: relative;
+    right: 2ch;
+    width: 15ch;
+}
+
 .machines {
     display: block;
     font-family: "Kode Mono", monospace;
     height: 100%;
 }
 
-.machines h4 {
-    margin-left: 15ch;
+.machines .horizontal-divider{
+    width: 100%;
+    height: 2ch;
+    right: 0;
+    top: 0;
 }
 
-.machines p {
-    margin-left: 15ch;
+.machines img {
+    width: 18ch;
+    position: relative;
+    right: 5ch;
+    top: 2ch;
 }
 
-#mixer,
-#slime-blandare,
-#modified-mixer,
-#blandblandare,
-#modifierad-bladblandare,
-#modifierad-slime-blandare {
-    width: auto;
-    height: 15ch;
-    align-content: center;
-    font-size: 0.8rem;
-    margin-right: 2ch;
+#msgbox {
+    z-index: 3;
+    position: fixed;
+    right: 4vmin;
+    bottom: 2vmin;
+    min-width: 25rem;
 }
 
-#mixer:hover,
-#slime-blandare:hover,
-#modified-mixer:hover,
-#blandblandare:hover,
-#modifierad-bladblandare:hover,
-#modifierad-slime-blandare:hover {
-    width: auto;
-    height: 16ch;
-    background-size: 40%;
+#msgbox > p {
+    font-family: "Kode Mono", monospace;
+    font-size: 1rem;
+    margin-bottom: 1ch;
+    padding: 3ch;
+    margin-left: 10ch;
 }
 
-#mixer {
-    background: url('../img/mixer.png');
-    background-size:contain;
-    background-size: 16ch;
+.warning {
+    background-image: url('../img/msg-window.png');
+    background-size: 50ch 30ch;
     background-repeat: no-repeat;
-    background-position: -4ch 2ch;
+    background-position: center;
+    color: red;
 }
 
-#slime-blandare {
-    background: url('../img/slime-mixer-cement.png');
-    background-size:contain;
-    background-size: 16ch;
+.success {
+    background-image: url('../img/msg-window.png');
+    background-size: 50ch 30ch;
     background-repeat: no-repeat;
-    background-position: -2ch 2ch;
+    background-position: center;
+    color: var(--color-light-green);
 }
 
-#modified-mixer {
-    background: url('../img/mixer-modified.png');
-    background-size:contain;
-    background-size: 18ch;
+.achievement {
+    background-image: url('../img/msg-window.png');
+    background-size: 50ch 30ch;
     background-repeat: no-repeat;
-    background-position: -4ch 2ch;
+    background-position: center;
+    color: var(--color-light);
 }
 
-#modifierad-slime-blandare {
-    background: url('../img/slime-mixer-cement-modified.png');
-    background-size:contain;
-    background-size: 18ch;
-    background-repeat: no-repeat;
-    background-position: -4ch 2ch;
-}
 
-#blandblandare {
-    background: url('../img/bladblandare.png');
-    background-size:contain;
-    background-size: 18ch;
-    background-repeat: no-repeat;
-    background-position: -5ch 2ch;
-}
-#modifierad-bladblandare {
-    background: url('../img/bladblandare-modified.png');
-    background-size:contain;
-    background-size: 18ch;
-    background-repeat: no-repeat;
-    background-position: -5ch 2ch;
-}
-
-.machine-horizontal-divider {
-    width: auto;
-    height: 1ch;
-    background: url('../img/container-three-divider.png');
-    background-size:contain;
-}
 
 
 

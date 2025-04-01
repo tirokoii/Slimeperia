@@ -9,14 +9,18 @@
  */
 const clickerButton = document.querySelector('#game-button');
 const moneyTracker = document.querySelector('#money');
-const ss = document.querySelector('#ss'); // sold slimes
 const mpsTracker = document.querySelector('#mps'); // money per slime
 const spcTracker = document.querySelector('#spc'); // slime per click
 const spsTracker = document.querySelector('#sps'); // slime per second
 const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
+const machineList = document.querySelector('#machinelist')
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
+const mapOne = document.querySelector('#map-part-one');
+const mapTwo = document.querySelector('#map-part-two');
+const mapThree = document.querySelector('#map-part-three');
+const mapFour = document.querySelector('#map-part-four');
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -25,10 +29,10 @@ const audioAchievement = document.querySelector('#swoosh');
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
-let slime = 0;
+let slimeWorth = 1;
 let money = 0;
-let moneyPerClick = 1;
-let moneyPerSecond = 0;
+let slimePerClick = 1;
+let slimePerSecond = 0;
 let acquiredUpgrades = 0;
 let last = 0;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
@@ -95,7 +99,7 @@ clickerButton.addEventListener(
     'click',
     () => {
         // vid click öka score med moneyPerClick
-        money += slimePerClick;
+        money += slimePerClick * slimeWorth;
         // håll koll på hur många gånger spelaren klickat
         numberOfClicks += 1;
         // console.log(clicker.score);
@@ -113,14 +117,14 @@ clickerButton.addEventListener(
  * Sist i funktionen så kallar den på sig själv igen för att fortsätta uppdatera.
  */
 function step(timestamp) {
-    moneyTracker.textContent = Math.round(money);
-    spsTracker.textContent = slimePerSecond;
-    spcTracker.textContent = slimePerClick;
-    mpsTracker.textContent = moneyPerSlime
-    upgradesTracker.textContent = acquiredUpgrades;
+    console.log(money)
+    moneyTracker.textContent = `Börs: ${Math.round(money)}`;
+    spsTracker.textContent = `Slimes per sekund: ${slimePerSecond}`;
+    spcTracker.textContent = `Slimes per klicks: ${slimePerClick}`;
+    mpsTracker.textContent = `Smilings per slime: ${slimeWorth}`;
 
     if (timestamp >= last + 1000) {
-        money += slimePerSecond;
+        money += slimePerSecond * slimeWorth;
         last = timestamp;
     }
 
@@ -157,6 +161,10 @@ function step(timestamp) {
         return true;
     });
 
+    if (acquiredUpgrades >= 10) {
+
+    }
+
     window.requestAnimationFrame(step);
 }
 
@@ -175,6 +183,9 @@ window.addEventListener('load', (event) => {
     upgrades.forEach((upgrade) => {
         upgradeList.appendChild(createCard(upgrade));
     });
+    machines.forEach((machine) => {
+        machineList.appendChild(createMachineCard(machine));
+    });
     window.requestAnimationFrame(step);
 });
 
@@ -192,26 +203,26 @@ upgrades = [
         name: 'Grön slime',
         image: 'green-slime.png',
         cost: 10,
-        amount: 1,
+        worth: 1,
     },
     {
         name: 'Röd slime',
         image: 'red-slime.png',
         cost: 50,
-        clicks: 2,
+        worth: 2,
     },
     
     {
         name: 'Blå slime',
         image: 'blue-slime.png',
         cost: 100,
-        clicks: 10,
+        worth: 10,
     },
     {
         name: 'Lila slime',
         image: 'purple-slime.png',
         cost: 500,
-        clicks: 10,
+        worth: 25,
     },
     {
         name: 'Mycke pengar',
@@ -223,53 +234,87 @@ upgrades = [
         name: 'Mer pengar',
         image: '10-smiling.png',
         cost: 1500,
-        amount: 100,
+        amount: 160,
     },
     {
         name: 'Mer pengar 2',
         image: '100-smiling.png',
-        cost: 1500,
-        amount: 100,
+        cost: 2200,
+        amount: 250,
     },
     {
         name: 'Mäst pengar',
         image: '1000-smiling.png',
-        cost: 1500,
-        amount: 100,
+        cost: 100000,
+        amount: 10000,
     },
     {
         name: 'Hastighet grad 1',
         image: 'speed-one.png',
-        cost: 1500,
-        amount: 100,
+        cost: 150,
+        clicks: 10,
     },
     {
         name: 'Hastighet grad 2',
         image: 'speed-two.png',
-        cost: 1500,
-        amount: 100,
+        cost: 500,
+        clicks: 100,
     },
     {
         name: 'Hatsighet grad 3',
         image: 'speed-three.png',
         cost: 1500,
-        amount: 100,
+        clicks: 300,
     },
     {
         name: 'Hatsighet grad 4',
         image: 'speed-four.png',
-        cost: 1500,
-        amount: 100,
+        cost: 12000,
+        clicks: 1000,
     },
 ];
 
+
 machines = [
     {
-        name: mixer,
-        image: 'mixer-png',
+        name: 'Mixer',
+        image: 'mixer.png',
+        des: 'Ett fantastiskt sätt att mixa din slime på',
         cost: 1,
-        amount: 10
-    }
+        amount: 10,
+        bought: 0
+    },
+    {
+        name: 'Slime blandare',
+        image: 'slime-mixer-cement.png',
+        des: 'Det kan inte bli bättre än så här',
+        cost: 1,
+        amount: 10,
+        bought: 0
+    },
+    {
+        name: 'Modifierad mixer',
+        image: 'mixer-modified.png',
+        des: 'Ett ännu bättre sätt att blanda på',
+        cost: 1,
+        amount: 10,
+        bought: 0
+    },
+    {
+        name: 'Bladblandare',
+        image: 'bladblandare.png',
+        des: 'Va?',
+        cost: 1,
+        amount: 10,
+        bought: 0
+    },    {
+        name: 'Bladblandare 2.0',
+        image: 'bladblandare-modified.png',
+        des: 'Seriöst? Ett bättre sätt...',
+        cost: 1,
+        amount: 10,
+        bought: 0
+    },
 ]
 
 /* createCard är en funktion som tar ett upgrade objekt som parameter och skapar
@@ -291,11 +336,79 @@ machines = [
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
  */
 
+function createMachineCard(machine) {
+    const itemBox = document.createElement('div');
+    itemBox.classList.add('machine-box');
+
+    const item = document.createElement('div');
+    item.classList.add('machine');
+
+    const machineImage = document.createElement('img');
+    const img = new Image();
+    img.src = machine.image;
+    machineImage.src = `./img/${machine.image}`;
+
+    item.appendChild(machineImage);
+    const text = document.createElement('div');
+    const name = document.createElement('h4');
+    const des = document.createElement('p');
+    const divider = document.createElement('img');
+    divider.classList.add('horizontal-divider')
+
+    name.textContent = `${machine.name}`;
+    des.textContent = `${machine.des}`
+
+    const textBox = document.createElement('div');
+    textBox.classList.add('upgrade-text-box');
+    const popUpName = document.createElement('p');
+    popUpName.classList.add('upgrade-name');
+    const popUpDes = document.createElement('p');
+    popUpDes.classList.add('upgrade-des-cost');
+    const cost = document.createElement('p');
+    cost.classList.add('upgrade-des-cost');
+
+    popUpName.textContent = `${machine.name}`;
+    if (machine.amount) {
+        popUpDes.textContent = `+ ${machine.amount} per sekund`;
+    } else if (machine.clicks) {
+        popUpDes.textContent = `+ ${machine.clicks} per clicks`;
+    } else {
+        popUpDes.textContent = `+ ${machine.worth} per slime`;
+    }
+    cost.textContent = `Kostnad: ${machine.cost} smilings`;
+
+    item.addEventListener('click', (e) => {
+        if (money >= machine.cost) {
+            acquiredUpgrades++;
+            money -= machine.cost;
+            machine.cost *= 2;
+            cost.textContent = 'Köp för ' + machine.cost + ' smilings';
+            slimePerSecond += machine.amount ? machine.amount : 0;
+            slimePerClick += machine.clicks ? machine.clicks : 0;
+            slimeWorth += machine.worth ? machine.worth : 0;
+            message('Grattis du har köpt en uppgradering!', 'success');
+        } else {
+            message('Du har inte råd.', 'warning');
+        }
+    });
+
+    textBox.appendChild(popUpName);
+    textBox.appendChild(popUpDes);
+    textBox.appendChild(cost);
+    text.appendChild(name);
+    text.appendChild(des);
+    item.appendChild(text);
+    item.appendChild(textBox);
+    itemBox.appendChild(item);
+    itemBox.appendChild(divider);
+    return itemBox;
+};
 
 function createCard(upgrade) {
     const item = document.createElement('div');
     item.classList.add('item');
-    const upgradeImage = document.createElement("img");
+
+    const upgradeImage = document.createElement('img');
     const img = new Image();
     img.src = upgrade.image;
     upgradeImage.src = `./img/${upgrade.image}`;
@@ -314,8 +427,10 @@ function createCard(upgrade) {
     name.textContent = `${upgrade.name}`;
     if (upgrade.amount) {
         des.textContent = `+ ${upgrade.amount} per sekund`;
-    } else {
+    } else if (upgrade.clicks) {
         des.textContent = `+ ${upgrade.clicks} per clicks`;
+    } else {
+        des.textContent = `+ ${upgrade.worth} per slime`;
     }
     cost.textContent = `Kostnad: ${upgrade.cost} smilings`;
 
@@ -323,11 +438,12 @@ function createCard(upgrade) {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
             money -= upgrade.cost;
-            upgrade.cost *= 1.5;
+            upgrade.cost *= 2;
             cost.textContent = 'Köp för ' + upgrade.cost + ' smilings';
             slimePerSecond += upgrade.amount ? upgrade.amount : 0;
             slimePerClick += upgrade.clicks ? upgrade.clicks : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
+            slimeWorth += upgrade.worth ? upgrade.worth : 0;
+            message('Du har köpt en uppgradering!', 'success');
         } else {
             message('Du har inte råd.', 'warning');
         }
@@ -335,9 +451,9 @@ function createCard(upgrade) {
     textBox.appendChild(name);
     textBox.appendChild(des);
     textBox.appendChild(cost);
-    item.appendChild(textBox)
+    item.appendChild(textBox);
     return item;
-}
+};
 
 /* Message visar hur vi kan skapa ett html element och ta bort det.
  * appendChild används för att lägga till och removeChild för att ta bort.
@@ -351,10 +467,7 @@ function message(text, type) {
     p.classList.add(type);
     p.textContent = text;
     msgbox.appendChild(p);
-    if (type === 'achievement') {
-        audioAchievement.play();
-    }
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);
-}
+};

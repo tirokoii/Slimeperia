@@ -85,6 +85,13 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 
 #### Animationer
 - Clicka på knappen (rör sig up och ned)
-- Snurrande hjul runt knappen
+- Snurrande hjul runt knappen (ja)
 - Ljus från utrustning i rum (nahh)
-- Ljus från blixtarna (när de går)
+- Ljus från blixtarna (skrap)
+
+
+#### 3 huvud funktionerna
+
+- Slime worth - worth
+- Slimes per second - amount
+- Slimes per click - clicks
