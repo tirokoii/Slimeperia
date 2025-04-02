@@ -17,10 +17,6 @@ const upgradeList = document.querySelector('#upgradelist');
 const machineList = document.querySelector('#machinelist')
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
-const mapOne = document.querySelector('#map-part-one');
-const mapTwo = document.querySelector('#map-part-two');
-const mapThree = document.querySelector('#map-part-three');
-const mapFour = document.querySelector('#map-part-four');
 
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
@@ -34,6 +30,8 @@ let money = 0;
 let slimePerClick = 1;
 let slimePerSecond = 0;
 let acquiredUpgrades = 0;
+let acquiredMachines = 0;
+let acquiredClicks = 0;
 let last = 0;
 let numberOfClicks = 0; // hur många gånger har spelare eg. klickat
 let active = false; // exempel för att visa att du kan lägga till klass för att indikera att spelare får valuta
@@ -161,8 +159,48 @@ function step(timestamp) {
         return true;
     });
 
-    if (acquiredUpgrades >= 10) {
+    if (acquiredMachines > 0) {
+        document.getElementById('map-part-one').style.visibility = "visible";
+    }
+    if (acquiredMachines > 10) {
+        document.getElementById('map-part-two').style.visibility = "visible";
+    }
+    if (acquiredMachines > 20) {
+        document.getElementById('map-part-three').style.visibility = "visible";
+    }
+    if (acquiredMachines > 30) {
+        document.getElementById('map-part-four').style.visibility = "visible";
+    }
 
+    if (acquiredClicks > 0) {
+        document.getElementById('bolt-one').style.visibility = "visible";
+    }
+    if (acquiredClicks > 5) {
+        document.getElementById('bolt-two').style.visibility = "visible";
+    }
+    if (acquiredClicks > 10) {
+        document.getElementById('bolt-three').style.visibility = "visible";
+    }
+    if (acquiredClicks > 15) {
+        document.getElementById('bolt-four').style.visibility = "visible";
+    }
+    if (acquiredClicks > 20) {
+        document.getElementById('bolt-five').style.visibility = "visible";
+    }
+    if (acquiredClicks > 25) {
+        document.getElementById('bolt-six').style.visibility = "visible";
+    }
+    if (acquiredClicks > 30) {
+        document.getElementById('bolt-seven').style.visibility = "visible";
+    }
+    if (acquiredClicks > 35) {
+        document.getElementById('bolt-eight').style.visibility = "visible";
+    }
+    if (acquiredClicks > 40) {
+        document.getElementById('bolt-nine').style.visibility = "visible";
+    }
+    if (acquiredClicks > 45) {
+        document.getElementById('bolt-ten').style.visibility = "visible";
     }
 
     window.requestAnimationFrame(step);
@@ -280,39 +318,39 @@ machines = [
         name: 'Mixer',
         image: 'mixer.png',
         des: 'Ett fantastiskt sätt att mixa din slime på',
-        cost: 1,
-        amount: 10,
+        cost: 10,
+        amount: 2,
         bought: 0
     },
     {
         name: 'Slime blandare',
         image: 'slime-mixer-cement.png',
         des: 'Det kan inte bli bättre än så här',
-        cost: 1,
-        amount: 10,
+        cost: 130,
+        amount: 30,
         bought: 0
     },
     {
         name: 'Modifierad mixer',
         image: 'mixer-modified.png',
         des: 'Ett ännu bättre sätt att blanda på',
-        cost: 1,
-        amount: 10,
+        cost: 600,
+        amount: 100,
         bought: 0
     },
     {
         name: 'Bladblandare',
         image: 'bladblandare.png',
         des: 'Va?',
-        cost: 1,
-        amount: 10,
+        cost: 1000,
+        amount: 250,
         bought: 0
     },    {
         name: 'Bladblandare 2.0',
         image: 'bladblandare-modified.png',
         des: 'Seriöst? Ett bättre sätt...',
-        cost: 1,
-        amount: 10,
+        cost: 4000,
+        amount: 600,
         bought: 0
     },
 ]
@@ -380,13 +418,14 @@ function createMachineCard(machine) {
     item.addEventListener('click', (e) => {
         if (money >= machine.cost) {
             acquiredUpgrades++;
+            acquiredMachines++;
             money -= machine.cost;
             machine.cost *= 2;
             cost.textContent = 'Köp för ' + machine.cost + ' smilings';
             slimePerSecond += machine.amount ? machine.amount : 0;
             slimePerClick += machine.clicks ? machine.clicks : 0;
             slimeWorth += machine.worth ? machine.worth : 0;
-            message('Grattis du har köpt en uppgradering!', 'success');
+            message('Du har köpt en uppgradering!', 'success');
         } else {
             message('Du har inte råd.', 'warning');
         }
@@ -437,6 +476,9 @@ function createCard(upgrade) {
     item.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
+            if (upgrade.clicks) {
+                acquiredClicks++;
+            };
             money -= upgrade.cost;
             upgrade.cost *= 2;
             cost.textContent = 'Köp för ' + upgrade.cost + ' smilings';

@@ -34,10 +34,10 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 
 #### En automatisk avtryckare för den gröna knappen (och upgraderingar till den)
 - Avtryckare i form av en blixt (köpa max 4st)
-- +10% speed 
-- +20% speed
-- +50% speed
-- +100% speed
+- +10% speed/clicks
+- +20% speed/clicks
+- +50% speed/clicks
+- +100% speed/clicks
 
 
 ### Achievements eller milstolpar
