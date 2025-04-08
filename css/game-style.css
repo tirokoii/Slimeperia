@@ -12,6 +12,7 @@
 
 .game {
     display: flex;
+    width: 100%;
 }
 
 body {
@@ -21,7 +22,7 @@ body {
 }
 
 .container-left {
-    width: 60ch;
+    width: 30%;
     justify-items: center;
     margin-top: 4ch;
 }
@@ -29,7 +30,7 @@ body {
 h1 {
     font-family: "Rubik Mono One", monospace;
     font-weight: 100;
-    width: 21ch;
+    width: 90%;
     height: 4ch;
     background: url('../img/name-text-holgrafik-effect.png');
     background-size: cover;
@@ -39,8 +40,11 @@ h1 {
 }
 
 .button-box {
+    margin-top: 2ch;
     width: 50ch;
+    height: 52ch;
     justify-items: center;
+    overflow: hidden;
 }
 
 #game-button {
@@ -55,21 +59,25 @@ h1 {
 }
 
 #game-button:hover {
+    margin-top: 11%;
     width: 31ch;
     height: 31ch;
-    margin-bottom: 0.5ch;
     transition: 0.1s;
 }
 
 #game-button:active {
+    margin-top: 14%;
     width: 29ch;
     height: 29ch;
     transition: 0.1s ease-in-out;
 }
 
-#floating-ring {
+.floating-ring {
+    position: fixed;
     width: 40ch;
     height: 40ch;
+    top: 12.5ch;
+    left: 5ch;
     background: url('../img/holografik-effect-button.png');
     background-size: cover;
     background-position: center;
@@ -78,6 +86,20 @@ h1 {
     justify-items: center;
     margin-bottom: 7.5ch;
     margin-top: 5ch;
+
+    animation-name: spin;
+    animation-duration: 30000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
 }
 
 .rod {
@@ -91,7 +113,7 @@ h1 {
 }
 
 .charges-box {
-    width: 60ch;
+    width: 100%;
     height: 30ch;
     background: url('../img/bolt-background.png');
     background-size: cover;
@@ -137,13 +159,13 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: auto;
+    width: 64%;
 }
 
 .stats {
     display: flex;
     font-family: "Kode Mono", monospace;
-    width: 65ch;
+    width: 95%;
     height: 20ch;
     background: url('../img/stats-holografik-effect.png');
     background-size:contain;
@@ -156,7 +178,7 @@ h1 {
 }
 
 .stats ul {
-    margin-left: 1ch;
+    margin-left: 4ch;
     margin-top: 3.5ch;
     line-height: 3ch;
 }
@@ -182,44 +204,45 @@ li {
 
 .map {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.map div {
+    display: flex;
+    width: auto;
+    height: 35ch;
 }
 
 #map-part-one {
-    width: 35.1ch;
-    height: 30ch;
+    width: 100%;
     background: url('../img/map-part-one.png');
     background-size:contain;
-    background-position: center;
+    background-repeat: no-repeat;
     visibility: hidden;
 }
 
 #map-part-two {
-    width: 35ch;
-    height: 18ch;
+    width: 100%;
     background: url('../img/map-part-two.png');
     background-size:contain;
-    background-position: center;
-    margin-inline: 2.5ch;
+    background-repeat: no-repeat;
     visibility: hidden;
 }
 
 #map-part-three {
-    width: 19.7ch;
-    height: 40ch;
+    width: 100%;
     background: url('../img/map-part-three.png');
     background-size:contain;
-    background-position: center;
+    background-repeat: no-repeat;
     visibility: hidden;
 }
 
 #map-part-four {
-    width: 40ch;
-    height: 35.6ch;
+    width: 120%;
     background: url('../img/map-part-four.png');
     background-size:contain;
-    background-position: center;
-    margin-left: 25ch;
-    margin-top: 4ch;
+    background-repeat: no-repeat;
     visibility: hidden;
 }
 
