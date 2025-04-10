@@ -25,22 +25,26 @@
             font-size: 1.5rem;
             font-weight: 500;
         }
+
         a {
             margin-inline: auto;
+            text-decoration: none;
         }
-        button {
+
+        .button {
+            padding-top: 0.8ch;
+            text-align: center;
             width: 20ch;
             height: 3ch;
-            margin-inline: auto;
-            margin-top: 5%;
             font-size: 2.5rem;
             font-family: "Kode Mono", monospace;
             font-weight: 500;
             background-color: #00B64D;
             color: #FFFFFF;
             border: none;
-        }
-        button:hover {
+        } 
+
+        .button:hover {
             cursor: pointer;
             background-color: #00b64ca3;
             transition: 0.2s;
@@ -54,7 +58,7 @@
     <p>/Mrs. Emilsson</p>
 
     <a href="game.html">
-        <button id="start-button" type="button">start</button>
+        <p class="button" type="button">start</p>
     </a>
 </body>
 </html>
