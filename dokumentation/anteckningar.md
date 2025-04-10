@@ -1,4 +1,27 @@
+## Ungefärlig tidslinje för skapandet
+- Planering
+- Ideer
+- Research/referencer
+- Skiss
+- Research/referencer
+- Figma
+- Skapa layout för webbsida i html
+- Kopiera coden från det forkade js till en ny fil
+- Byt namn på variablerna, klasserna samt id's
+- Skapa den första logiken (trackers)
+- Bygga om upgrades sectorn, så att javascript skapade elementen och en popup med information om upgraderingen visades
+- Göra på samma viss som med upgrades på machines
+- Göra mapen som är i mitten och få dem att ha villkor för när de ska bli synlig
+- Göra samma sak med blixtarna på den vänstra sidan
+- Responsivitet
+
+
 ## Problem
+
+### img
+Jag visste inte allts hur jag skulle få individuella images för varje upgrade. Jag prövade flera sätt och sökte up men inget fungerade. Jag fick fråga våran lärare om hur man gjorde. Det visade sig att man först behövde skapa en ny variabel med värdet: new Image(), och sedan sätta sources för variabel till bilden man ville ha.
+
+Problem löst!
 
 ### Utdata
 Jag stötte på problemet att utdatan för description på upgraderingarna vart NumN. 
