@@ -26,4 +26,6 @@ Problemet löst!
 
 ### Responsivitet fungerar inte
 
-Spelet är inte ett dugg resposivt. Den skalar inte med sidan allts. Det är för att jag har satt ett betämt värde på alla längder och höjder. Exempelvis width: 10ch. Vilket betyder att den inte kommer att skala till min skärm. Jag började med att ändra width och height på de 3 containerna jag har: left, middle, right, så att de skalade med skrämen. Sedan ändrade jag individuella element som även behövde vara responsiva inom containerna.
+Spelet är inte ett dugg resposivt. Den skalar inte med sidan allts. Det är för att jag har satt ett betämt värde på alla längder och höjder. Exempelvis width: 10ch. Vilket betyder att den inte kommer att skala till min skärm. Jag började med att ändra width och height på de 3 containerna jag har: left, middle, right, så att de skalade med skrämen. Sedan ändrade jag individuella element som även behövde vara responsiva inom containerna. Det fungerade inte rikigt som jag tänkte, eftersom visa element fortfarande inte skalade ordentligt. Jag prövade då att ändra enheten på width vw (viewport width) för att se om det gjorde någon skillnad, vilket det gjorde. Jag fick aldrig riktigt till responsiviteten för mindre skärmar men de andra fungerar hyfsat.
+
+Problemet inte rikitgt löst

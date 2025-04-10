@@ -1,93 +1,60 @@
 <!DOCTYPE html>
-<html lang="sv">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>SLIMEPERIA - click the green button</title>
+    <title>Slimepire - start</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+        body {
+            display: grid;
+            font-family: "Kode Mono", monospace;
+            margin-inline: 15%;
+            background-color: #060606;
+            color: #FFFFFF;
+            margin-block: 2%;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+        }
+        
+        p {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        a {
+            margin-inline: auto;
+        }
+        button {
+            width: 20ch;
+            height: 3ch;
+            margin-inline: auto;
+            margin-top: 5%;
+            font-size: 2.5rem;
+            font-family: "Kode Mono", monospace;
+            font-weight: 500;
+            background-color: #00B64D;
+            color: #FFFFFF;
+            border: none;
+        }
+        button:hover {
+            cursor: pointer;
+            background-color: #00b64ca3;
+            transition: 0.2s;
+        }
+    </style>
 </head>
-
 <body>
-    <audio id="swoosh" src="audio/607251__d4xx__swoosh-2.wav"></audio>
-    <header class="hero">
-        <picture>
-            <img src="img/hero.png" alt="hero-map">
-        </picture>
-        <div class="hero-gradient"></div>
-        <div class="container hero-content">
-            <h1>SLIMEPIRE</h1>
-            <div class="lead">
-                <p>Hjälp en antisocial forskare med att ta över världen på ett mycket intressnat sätt!</p>
-                <p>Tryck på den gröna knappen och skapa slimes!</p>
-                <p>Hur många slimes kan du sälja?</p>
-            </div>
-        </div>
-    </header>
-    <main class="container">
-        <article class="game">
-            <div class="game-hud">
-                <ul class="game-currency">
-                    <li class="item">
-                        <h3>Pengar: <span id="money"></span></h3>
-                    </li>
-                    <li class="item">
-                        <h3>Slimes per klick: <span id="mpc"></span></h3>
-                    </li>
-                    <li class="item">
-                        <h3>Slimes per sekund: <span id="mps"></span></h3>
-                    </li>
-                    <li class="item">
-                        <h3>Uppgraderingar: <span id="upgrades"></span></h3>
-                    </li>
-                </ul>
-                <div class="game-controls">
-                    <button type="button" id="game-button"></button>
-                </div>
-            </div>
-            <div class="w-100">
-                <h2>Uppgraderingar</h2>
-                <div id="upgradelist"></div>
-            </div>
-        </article>
-    </main>
-    <div id="msgbox"></div>
-    <footer class="container footer">
-        <div>
-            <p>Hjälp till att fixa fel och lägga till funktioner:</p>
-            <ul>
-                <li>
-                    <a href="https://github.com/jensnti/clicker/issues">issues</a>
-                </li>
-                <li>
-                    <a href="https://github.com/tirokoii/wu1-clicker/pulls">pull requests</a>.
-                </li>
-            </ul>
-        </div>
-        <div>
-            <p>Credits:</p>
-            <ul>
-                <li>
-                    <a href="https://freesound.org/s/607251/">Ljudeffekt</a>
-                </li>
-                <li>
-                    Photo by <a
-                        href="https://unsplash.com/@ashleighjoyphotography?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ashleigh
-                        Joy Photography</a> on <a
-                        href="https://unsplash.com/photos/uyRku9KF2N8?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-                </li>
-                <li>
-                    Photo by <a
-                        href="https://unsplash.com/es/@bmeliti?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brett
-                        Meliti</a> on <a
-                        href="https://unsplash.com/photos/RgkYMfFopIA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-    <script src="js/clicker.js"></script>
-</body>
+    <h1>SLIMEPERIA - click the button</h1>
+    <p>Ge-Roger Emilsson är en genialisk men ensam vetenskapsman som bara vill ha vänner. Men för att får det måste han först ta över världen. Han har kommit på den genialiska iden att använda slime med mikro-organismer i sig! Genom att sälja slimes kan han tjäna slimlings upgradera sin utrustning och ta över världen samtidigt!</p>
+    <p>Du har som han robot assistent i upggift att trycka på den gröna knappen som sänder el ut till all maskiner och hjälpa honom köpa ny utrustning. Lycka till!</p>
+    <p>/Mrs. Emilsson</p>
 
+    <a href="game.html">
+        <button id="start-button" type="button">start</button>
+    </a>
+</body>
 </html>

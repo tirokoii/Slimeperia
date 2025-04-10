@@ -22,7 +22,7 @@ body {
 }
 
 .container-left {
-    width: 30%;
+    width: 40%;
     justify-items: center;
     margin-top: 4ch;
 }
@@ -40,52 +40,51 @@ h1 {
 }
 
 .button-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 2ch;
     width: 50ch;
-    height: 52ch;
+    height: 23vw;
     justify-items: center;
-    overflow: hidden;
+    margin-top: 8vh;
 }
 
 #game-button {
-    margin-top: 12%;
-    width: 30ch;
-    height: 30ch;
+    width: 25vw;
+    height: 25vw;
     background: url('../img/green-button.png');
-    background-size: cover;
+    background-size:contain;
     background-position: center;
+    background-repeat: no-repeat;
     justify-self: center;
     transition: 0.1s;
+    margin-top: 1vw;
 }
 
 #game-button:hover {
-    margin-top: 11%;
-    width: 31ch;
-    height: 31ch;
+    width: 26vw;
+    height: 26vw;
     transition: 0.1s;
 }
 
 #game-button:active {
-    margin-top: 14%;
-    width: 29ch;
-    height: 29ch;
+    width: 24vw;
+    height: 24vw;
     transition: 0.1s ease-in-out;
 }
 
 .floating-ring {
     position: fixed;
-    width: 40ch;
-    height: 40ch;
-    top: 12.5ch;
-    left: 5ch;
+    width: 22vw;
+    height: 22vw;
     background: url('../img/holografik-effect-button.png');
     background-size: cover;
     background-position: center;
     z-index: -1;
     align-content: center;
-    justify-items: center;
-    margin-bottom: 7.5ch;
-    margin-top: 5ch;
+    margin-bottom: 7.5vh;
 
     animation-name: spin;
     animation-duration: 30000ms;
@@ -104,7 +103,7 @@ h1 {
 
 .rod {
     width: 1.5ch;
-    height: 16ch;
+    height: 8vw;
     background: url('../img/rod.png');
     background-size: cover;
     background-position: center;
@@ -114,16 +113,17 @@ h1 {
 
 .charges-box {
     width: 100%;
-    height: 30ch;
+    height: 33vh;
     background: url('../img/bolt-background.png');
     background-size: cover;
     background-position: center;
     align-content: center;
     justify-items: center;
+    border-top: 0.5ch solid var(--color-light-green);
 }
 
 .bolt-rows {
-    width: 6ch;
+    width: 3.5vw;
     display: flex;
     gap: 4ch;
     justify-content: center;
@@ -159,36 +159,35 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 64%;
+    width: 55%;
 }
 
 .stats {
     display: flex;
     font-family: "Kode Mono", monospace;
     width: 95%;
-    height: 20ch;
+    height: 19ch;
     background: url('../img/stats-holografik-effect.png');
     background-size:contain;
+    background-size: 39vw 20vh;
     background-position: center;
     background-repeat: no-repeat;
     align-content: center;
     justify-self: center;
     margin-block: 1ch;
-    gap: 7ch;
 }
 
 .stats ul {
-    margin-left: 4ch;
-    margin-top: 3.5ch;
-    line-height: 3ch;
+    line-height: 3vh;
+    align-self: center;
+    margin-left: 3vw;
 }
 
 li {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    font-size: 1rem;
-    margin-left: 3ch;
+    font-size: 1.2vw;
 }
 
 .stats-divider {
@@ -248,27 +247,27 @@ li {
 
 .container-right {
     overflow: scroll;
-    width: 60ch;
+    width: 30%;
     height: auto;
     margin-top: 2ch;
     scrollbar-color: var(--color-dark);
 }
 
 h3 {
-    font-family: "Kode Mono", monospace;
-    width: 6ch;
-    height: 3.2ch;
     font-family: "Press Start 2P", system-ui;
-    font-size: 3rem;
+    width: 19vw;
+    height: 20vh;
+    font-size: 260%;
     background: url('../img/store-holografik-effect.png');
     background-size:contain;
+    background-repeat: no-repeat;
     justify-self: center;
     text-align: center;
     align-content: center;
 }
 
 .store-text {
-    margin-bottom: 2ch;
+    margin-bottom: 1ch;
 }
 
 .horizontal-divider {
@@ -281,13 +280,14 @@ h3 {
 .upgrades {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    grid-template-rows: 9.5ch 9ch 9ch;
-    height: 30.5ch;
+    grid-template-rows: 35% 35% 25%;
+    height: 16vw;
     width: 100%;
     border: 1.2ch solid var(--color-blue);
     background: url('../img/upgrades-grid.png');
     background-size:contain;
     background-position: center;
+    background-repeat: no-repeat;
     justify-items: center;
     align-items: center;
 }
@@ -297,52 +297,45 @@ h3 {
 }
 
 .item {
-    width: 10ch;
+    width: 80%;
     height: auto;
     justify-items: center;
 }
 
 .item:hover img {
-    width: 9ch;
+    width: 85%;
 }
 
 .item:hover .upgrade-text-box {
     visibility: visible;
-
 }
 
 .machine-box:hover .upgrade-text-box {
     visibility: visible;
-    right: 38ch;
-    top: 23.7ch;
-    width: 41ch;
-    height: 12ch;
+    justify-content: center;
+}
+
+.machine-box:hover .machine img{
+    width: 12vw;
 }
 
 .machine-box .upgrade-name {
+    font-size: 1.2rem;
+    margin-top: 0;
     width: 20ch;
 }
 
 .machine-box .upgrade-des-cost {
-    width: 40ch;
-    left: 0%;
-}
-
-.machine-box:hover .machine img{
-    height: 17ch;
-    width: 18ch;
-}
-
-.machine-box .upgrade-text-box p{
-    margin-left: 5ch;
+    font-size: 0.8rem;
+    width: 30ch;
 }
 
 .upgrade-text-box {
     display: flex;
     flex-direction: column;
     position: absolute;
-    right: 46ch;
-    top: 28ch;
+    top: 16vw;
+    right: 24.3vw;
     width: 49ch;
     height: 15ch;
     background-color: var(--color-dark);
@@ -375,21 +368,21 @@ h3 {
 }
 
 .machine {
-    height: 15ch;
+    height: 20vh;
     display: flex;
     align-items: center;
     overflow: hidden;
 }
 
 .machine p, h4{
-    position: relative;
-    right: 2ch;
-    width: 15ch;
+    font-family: "Kode Mono", monospace;
+    font-size: 1vw;
+    position: static;
+    width: 10vw;
 }
 
 .machines {
     display: block;
-    font-family: "Kode Mono", monospace;
     height: 110%;
 }
 
@@ -401,7 +394,7 @@ h3 {
 }
 
 .machines img {
-    width: 18ch;
+    width: 13vw;
     position: relative;
     right: 5ch;
     top: 2ch;
@@ -448,6 +441,85 @@ h3 {
 }
 
 
+@media only screen and (max-width: 1025px) {
+    .container-left {
+        width: 30%;
+    }
+
+    .machine {
+        height: 12vw;
+    }
+
+    .floating-ring {
+        top: 15.5vw;
+    }
+
+    .button-box {
+        height: 43vw;
+    }
+
+    #game-button {
+        width: 17vw;
+    }
+
+    .rod {
+        height: 40vw;
+        background-size: 1.2vw 40vw;
+    }
+
+    .charges-box {
+        width: 100%;
+        height: 16vw;
+    }
+
+    .upgrade-text-box {
+        right: 32.7vh;
+    }
+
+    h3 {
+        width: 20vw;
+        height: 15vh;
+        font-size: 200%;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .floating-ring {
+        top: 21vw;
+    }
+
+    .button-box {
+        height: 43vw;
+    }
+
+    #game-button {
+        width: 17vw;
+    }
+
+    .rod {
+        height: 40vw;
+        background-size: 1.2vw 40vw;
+    }
+
+    .upgrade-text-box {
+        top: 26vh;
+        right: 24.5vh;
+        width: 38vw;
+        height: 17vh;
+        background-repeat: no-repeat;
+    }
+
+    .upgrade-name {
+        font-size: 2vh;
+        margin-top: 5vh;
+    }
+
+    .upgrade-des-cost {
+        font-size: 1.3vh;
+    }
+}
 
 
 
