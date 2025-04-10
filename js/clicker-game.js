@@ -25,6 +25,8 @@ const audioAchievement = document.querySelector('#swoosh');
  * värden, utan då använder vi let.
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
+
+let earned_money = 0
 let slimeWorth = 1;
 let money = 0;
 let slimePerClick = 1;
@@ -123,6 +125,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += slimePerSecond * slimeWorth;
+        earned_money += money
         last = timestamp;
     }
 
@@ -201,6 +204,10 @@ function step(timestamp) {
     }
     if (acquiredClicks > 45) {
         document.getElementById('bolt-ten').style.visibility = "visible";
+    }
+
+    if (earned_money > 1000000000000000000) {
+        window.location.replace("http://127.0.0.1:5500/end.html");
     }
 
     window.requestAnimationFrame(step);
