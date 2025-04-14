@@ -378,7 +378,7 @@ h3 {
     font-family: "Kode Mono", monospace;
     font-size: 1vw;
     position: static;
-    width: 10vw;
+    width: 8vw;
 }
 
 .machines {
@@ -438,6 +438,23 @@ h3 {
     background-repeat: no-repeat;
     background-position: center;
     color: var(--color-light);
+}
+
+.achievementTracker {
+    position: absolute;
+    bottom: 35vh;
+}
+
+.achievementTracker img {
+    width: 4ch;
+}
+
+.achievementTracker:hover img {
+    width: 3.9ch;
+}
+
+.achievement_box {
+    position: absolute;
 }
 
 
@@ -520,6 +537,8 @@ h3 {
         font-size: 1.3vh;
     }
 }
+
+
 
 
 

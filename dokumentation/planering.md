@@ -33,11 +33,11 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - 1 slime = + 50% smilings
 
 #### En automatisk avtryckare för den gröna knappen (och upgraderingar till den)
-- Avtryckare i form av en blixt (köpa max 4st)
-- +10% speed/clicks
-- +20% speed/clicks
-- +50% speed/clicks
-- +100% speed/clicks
+- Avtryckare i form av en blixt (köpa max 4st) - Not
+- +10% speed/clicks - Not
+- +20% speed/clicks - Not
+- +50% speed/clicks - Not
+- +100% speed/clicks - Not
 
 
 ### Achievements eller milstolpar
@@ -47,6 +47,7 @@ Efter att man har nått en milstolpe på att ha sålt 100000 kommer man ta över
 - Gör 1000000000 slimes (Kapitalism)
 - Bygg din första ... (Stor byggarn)
 - Tjäna 100000 smilings (Wow, vilken pengakung du är)
+
 #### Minor
 - Gör 1 slime (En otydlig start) 
 - Gör 10 slime (Nu börjar det likna något)

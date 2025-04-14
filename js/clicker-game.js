@@ -42,7 +42,7 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 // av achievements.
 // requiredSOMETHING är vad som krävs för att få dem
 
-let achievements = [
+let achievementList = [
     {
         description: 'Stor byggarn',
         requiredUpgrades: 1,
@@ -79,8 +79,28 @@ let achievements = [
         acquired: false,
     },
     {
-        description: 'Nu börjar du bli girig',
-        requiredClicks: 10001,
+        description: 'Click kungen',
+        requiredClicks: 100000,
+        acquired: false,
+    },
+    {
+        description: 'Bra jobbat!',
+        earned_money: 100,
+        acquired: false,
+    },
+    {
+        description: 'Vilken penga kung du är',
+        earned_money: 10000,
+        acquired: false,
+    },
+    {
+        description: 'Moneymaker',
+        earned_money: 100000,
+        acquired: false,
+    },
+    {
+        description: 'Jeff Pesos',
+        earned_money: 10000000,
         acquired: false,
     },
 ];
@@ -140,7 +160,7 @@ function step(timestamp) {
     // villkoren i första ifsatsen ser till att achivments som är klarade
     // tas bort. Efter det så kontrolleras om spelaren har uppfyllt kriterierna
     // för att få den achievement som berörs.
-    achievements = achievements.filter((achievement) => {
+    achievementList = achievementList.filter((achievement) => {
         if (achievement.acquired) {
             return false;
         }
@@ -206,7 +226,7 @@ function step(timestamp) {
         document.getElementById('bolt-ten').style.visibility = "visible";
     }
 
-    if (earned_money > 1000000000000000000) {
+    if (earned_money > 10000000000000) {
         window.location.replace("http://127.0.0.1:5500/end.html");
     }
 
@@ -230,6 +250,9 @@ window.addEventListener('load', (event) => {
     });
     machines.forEach((machine) => {
         machineList.appendChild(createMachineCard(machine));
+    });
+    achivments.forEach((achievement) => {
+        achievementList.appendChild(createAchivment(achievement));
     });
     window.requestAnimationFrame(step);
 });
@@ -502,6 +525,12 @@ function createCard(upgrade) {
     textBox.appendChild(cost);
     item.appendChild(textBox);
     return item;
+};
+
+function createAchivment(achivment) {
+    const achivmentbox = document.createElement('div');
+    achivmentbox.classList.add('achievement_box');
+    achivmentbox.textContent = `${achivment.description}`;
 };
 
 /* Message visar hur vi kan skapa ett html element och ta bort det.
