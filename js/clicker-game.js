@@ -14,7 +14,8 @@ const spcTracker = document.querySelector('#spc'); // slime per click
 const spsTracker = document.querySelector('#sps'); // slime per second
 const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
-const machineList = document.querySelector('#machinelist')
+const machineList = document.querySelector('#machinelist');
+const achivementsAcquired = document.querySelector('#achivmentlist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
 
@@ -44,62 +45,74 @@ let active = false; // exempel för att visa att du kan lägga till klass för a
 
 let achievementList = [
     {
-        description: 'Stor byggarn',
+        name: 'Stor byggarn',
+        description: 'Bygg 1 maskin',
         requiredUpgrades: 1,
         acquired: false,
     },
     {
-        description: 'Galen vetenskaps man',
+        name: 'Galen vetenskaps man',
+        description: 'Bygg 100 maskiner',
         requiredUpgrades: 100,
         acquired: false,
     },
     {
-        description: 'Tillbaka till fabriken',
+        name: 'Tillbaka till fabriken',
+        description: 'Bygg 1000 maskiner',
         requiredUpgrades: 1000,
         acquired: false,
     },
     {
-        description: 'En otydlig start',
+        name: 'En otydlig start',
+        description: 'Klicka för första gången',
         requiredClicks: 1,
         acquired: false,
     },
     {
-        description: 'Nu börjar det likna något!',
+        name: 'Nu börjar det likna något!',
+        description: 'Kilcka 100 gånger',
         requiredClicks: 100,
         acquired: false,
     },
     {
-        description: 'En vägg byggd av slime',
+        name: 'En vägg byggd av slime',
+        description: 'Kilcka 1000 gånger',
         requiredClicks: 1000,
         acquired: false,
     },
     {
         description: 'Slime doctor',
+        description: 'Klicka 10000 gånger',
         requiredClicks: 10000,
         acquired: false,
     },
     {
-        description: 'Click kungen',
+        name: 'Click kungen',
+        description: 'Klicka 100000 gånger',
         requiredClicks: 100000,
         acquired: false,
     },
     {
-        description: 'Bra jobbat!',
+        name: 'Bra jobbat!',
+        description: 'Tjäna 100 smilings',
         earned_money: 100,
         acquired: false,
     },
     {
-        description: 'Vilken penga kung du är',
+        name: 'Vilken penga kung du är',
+        description: 'Tjäna 10000 smilings',
         earned_money: 10000,
         acquired: false,
     },
     {
-        description: 'Moneymaker',
+        name: 'Moneymaker',
+        description: 'Tjäna 100000 smilings',
         earned_money: 100000,
         acquired: false,
     },
     {
-        description: 'Jeff Pesos',
+        name: 'Jeff Pesos',
+        description: 'Tjäna 10000000 smilings',
         earned_money: 10000000,
         acquired: false,
     },
@@ -136,6 +149,7 @@ clickerButton.addEventListener(
  * denna metod som uppdaterar webbsidans text och pengarna.
  * Sist i funktionen så kallar den på sig själv igen för att fortsätta uppdatera.
  */
+
 function step(timestamp) {
     console.log(money)
     moneyTracker.textContent = `Börs: ${Math.round(money)}`;
@@ -169,7 +183,7 @@ function step(timestamp) {
             acquiredUpgrades >= achievement.requiredUpgrades
         ) {
             achievement.acquired = true;
-            message(achievement.description, 'achievement');
+            message(achievement.name, 'achievement');
             return false;
         } else if (
             achievement.requiredClicks &&
@@ -226,7 +240,7 @@ function step(timestamp) {
         document.getElementById('bolt-ten').style.visibility = "visible";
     }
 
-    if (earned_money > 10000000000000) {
+    if (earned_money > 10000000000) {
         window.location.replace("http://127.0.0.1:5500/end.html");
     }
 
@@ -250,9 +264,6 @@ window.addEventListener('load', (event) => {
     });
     machines.forEach((machine) => {
         machineList.appendChild(createMachineCard(machine));
-    });
-    achivments.forEach((achievement) => {
-        achievementList.appendChild(createAchivment(achievement));
     });
     window.requestAnimationFrame(step);
 });
@@ -357,7 +368,7 @@ machines = [
         image: 'slime-mixer-cement.png',
         des: 'Det kan inte bli bättre än så här',
         cost: 130,
-        amount: 30,
+        amount: 20,
         bought: 0
     },
     {
@@ -365,7 +376,7 @@ machines = [
         image: 'mixer-modified.png',
         des: 'Ett ännu bättre sätt att blanda på',
         cost: 600,
-        amount: 100,
+        amount: 50,
         bought: 0
     },
     {
@@ -373,14 +384,14 @@ machines = [
         image: 'bladblandare.png',
         des: 'Va?',
         cost: 1000,
-        amount: 250,
+        amount: 140,
         bought: 0
     },    {
         name: 'Bladblandare 2.0',
         image: 'bladblandare-modified.png',
         des: 'Seriöst? Ett bättre sätt...',
         cost: 4000,
-        amount: 600,
+        amount: 200,
         bought: 0
     },
 ]
@@ -450,7 +461,8 @@ function createMachineCard(machine) {
             acquiredUpgrades++;
             acquiredMachines++;
             money -= machine.cost;
-            machine.cost *= 2;
+            machine.cost *= 1.2;
+            machine.cost = Math.round(machine.cost);
             cost.textContent = 'Köp för ' + machine.cost + ' smilings';
             slimePerSecond += machine.amount ? machine.amount : 0;
             slimePerClick += machine.clicks ? machine.clicks : 0;
@@ -510,7 +522,8 @@ function createCard(upgrade) {
                 acquiredClicks++;
             };
             money -= upgrade.cost;
-            upgrade.cost *= 2;
+            upgrade.cost *= 1.5;
+            upgrade.cost = Math.round(upgrade.cost);
             cost.textContent = 'Köp för ' + upgrade.cost + ' smilings';
             slimePerSecond += upgrade.amount ? upgrade.amount : 0;
             slimePerClick += upgrade.clicks ? upgrade.clicks : 0;
@@ -525,12 +538,6 @@ function createCard(upgrade) {
     textBox.appendChild(cost);
     item.appendChild(textBox);
     return item;
-};
-
-function createAchivment(achivment) {
-    const achivmentbox = document.createElement('div');
-    achivmentbox.classList.add('achievement_box');
-    achivmentbox.textContent = `${achivment.description}`;
 };
 
 /* Message visar hur vi kan skapa ett html element och ta bort det.
