@@ -15,7 +15,7 @@ const spsTracker = document.querySelector('#sps'); // slime per second
 const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const machineList = document.querySelector('#machinelist');
-const achivementsAcquired = document.querySelector('#achivmentlist');
+const achivementsAcquired = document.querySelector('#achievementlist');
 const msgbox = document.querySelector('#msgbox');
 const audioAchievement = document.querySelector('#swoosh');
 
@@ -27,7 +27,8 @@ const audioAchievement = document.querySelector('#swoosh');
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
 
-let earned_money = 0
+let unlockedAchivements = [];
+let earned_money = 0;
 let slimeWorth = 1;
 let money = 0;
 let slimePerClick = 1;
@@ -174,6 +175,7 @@ function step(timestamp) {
     // villkoren i första ifsatsen ser till att achivments som är klarade
     // tas bort. Efter det så kontrolleras om spelaren har uppfyllt kriterierna
     // för att få den achievement som berörs.
+
     achievementList = achievementList.filter((achievement) => {
         if (achievement.acquired) {
             return false;
@@ -183,14 +185,14 @@ function step(timestamp) {
             acquiredUpgrades >= achievement.requiredUpgrades
         ) {
             achievement.acquired = true;
-            message(achievement.name, 'achievement');
+            message(achievement.name, 'achievement', achievement.description);
             return false;
         } else if (
             achievement.requiredClicks &&
             numberOfClicks >= achievement.requiredClicks
         ) {
             achievement.acquired = true;
-            message(achievement.description, 'achievement');
+            message(achievement.name, 'achievement', achievement.description);
             return false;
         }
         return true;
@@ -463,11 +465,11 @@ function createMachineCard(machine) {
             money -= machine.cost;
             machine.cost *= 1.2;
             machine.cost = Math.round(machine.cost);
-            cost.textContent = 'Köp för ' + machine.cost + ' smilings';
+            cost.textContent = 'Köp för ' + machine.cost + ' smilings', '0';
             slimePerSecond += machine.amount ? machine.amount : 0;
             slimePerClick += machine.clicks ? machine.clicks : 0;
             slimeWorth += machine.worth ? machine.worth : 0;
-            message('Du har köpt en uppgradering!', 'success');
+            message('Du har köpt en uppgradering!', 'success', '0');
         } else {
             message('Du har inte råd.', 'warning');
         }
@@ -528,9 +530,9 @@ function createCard(upgrade) {
             slimePerSecond += upgrade.amount ? upgrade.amount : 0;
             slimePerClick += upgrade.clicks ? upgrade.clicks : 0;
             slimeWorth += upgrade.worth ? upgrade.worth : 0;
-            message('Du har köpt en uppgradering!', 'success');
+            message('Du har köpt en uppgradering!', 'success', '0');
         } else {
-            message('Du har inte råd.', 'warning');
+            message('Du har inte råd.', 'warning', '0');
         }
     });
     textBox.appendChild(name);
@@ -540,6 +542,18 @@ function createCard(upgrade) {
     return item;
 };
 
+function createAchivementCard(name, description) {
+    const div = document.createElement('div');
+    div.classList.add('unlocked_achievement');
+    const h4 = document.createElement('h4');
+    h4.textContent = name;
+    const p = document.createElement('p');
+    p.textContent = description;
+
+    div.appendChild(h4);
+    div.appendChild(p);
+    return div;
+};
 /* Message visar hur vi kan skapa ett html element och ta bort det.
  * appendChild används för att lägga till och removeChild för att ta bort.
  * Detta görs med en timer.
@@ -547,11 +561,15 @@ function createCard(upgrade) {
  * https://developer.mozilla.org/en-US/docs/Web/API/Node/removeChild
  * https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/setTimeout
  */
-function message(text, type) {
+function message(text, type, description) {
     const p = document.createElement('p');
     p.classList.add(type);
     p.textContent = text;
     msgbox.appendChild(p);
+    if (type === 'achievement') {
+        a = createAchivementCard(text, description);
+        achivementsAcquired.append(a);
+    }
     setTimeout(() => {
         p.parentNode.removeChild(p);
     }, 2000);

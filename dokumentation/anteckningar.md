@@ -57,7 +57,7 @@ Problemet inte rikitgt löst
 Phone-versionen är inte klar ännu. Men mitt spel är inte tänkt att spelas på telefon. Den kommer när jag orkar
 
 # Till nästa gång:
-- Achivments (machines), acquired machines (messege)
-- Acquired achivments list, (java), appear after acquired in list.
+- Achivements (machines), acquired machines (messege)
+- Acquired achivements list, (java), appear after acquired in list.
 - Earnings, (math), graphs
 - Phone version

@@ -25,6 +25,7 @@ body {
     width: 40%;
     justify-items: center;
     margin-top: 4ch;
+    overflow: hidden;
 }
 
 h1 {
@@ -454,7 +455,26 @@ h3 {
 }
 
 .achievement_box {
+    font-family: "Kode Mono", monospace;
+    overflow-y: scroll;
     position: absolute;
+    margin-top: 4vh;
+    left: -3vw;
+    background-color: var(--color-blue);
+    color: var(--color-light);
+    height: auto;
+    width: 32vw;
+}
+
+.unlocked_achievement {
+    border: 0.5ch solid var(--color-dark-green);
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+}
+
+.unlocked_achievement * {
+    margin-left: 2vw;
+    width: 20vw;
 }
 
 
