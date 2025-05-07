@@ -15,10 +15,9 @@ const spsTracker = document.querySelector('#sps'); // slime per second
 const upgradesTracker = document.querySelector('#upgrades');
 const upgradeList = document.querySelector('#upgradelist');
 const machineList = document.querySelector('#machinelist');
-const achivementsAcquired = document.querySelector('#achievementlist');
+const achievementsAcquired = document.querySelector('#achievementlist');
 const msgbox = document.querySelector('#msgbox');
-const audioAchievement = document.querySelector('#swoosh');
-
+const trophy = document.querySelector('#trophy');
 /* Följande variabler använder vi för att hålla reda på hur mycket pengar som
  * spelaren, har och tjänar.
  * last används för att hålla koll på tiden.
@@ -27,7 +26,7 @@ const audioAchievement = document.querySelector('#swoosh');
  * Läs mer: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
  */
 
-let unlockedAchivements = [];
+let unlockedAchievements = [];
 let earned_money = 0;
 let slimeWorth = 1;
 let money = 0;
@@ -141,6 +140,23 @@ clickerButton.addEventListener(
     false
 );
 
+
+function open_close() {
+    if (achievementsAcquired.style.display == "none") {
+        achievementsAcquired.style.display = "block";
+    } else {
+        achievementsAcquired.style.display = "none";
+    }
+}
+
+trophy.addEventListener(
+    'click',
+    () => {
+        open_close();
+    },
+    false
+)
+
 /* För att driva klicker spelet så kommer vi att använda oss av en metod som heter
  * requestAnimationFrame.
  * requestAnimationFrame försöker uppdatera efter den refresh rate som användarens
@@ -160,7 +176,7 @@ function step(timestamp) {
 
     if (timestamp >= last + 1000) {
         money += slimePerSecond * slimeWorth;
-        earned_money += money
+        earned_money += money;
         last = timestamp;
     }
 
@@ -465,13 +481,12 @@ function createMachineCard(machine) {
             money -= machine.cost;
             machine.cost *= 1.2;
             machine.cost = Math.round(machine.cost);
-            cost.textContent = 'Köp för ' + machine.cost + ' smilings', '0';
             slimePerSecond += machine.amount ? machine.amount : 0;
             slimePerClick += machine.clicks ? machine.clicks : 0;
             slimeWorth += machine.worth ? machine.worth : 0;
             message('Du har köpt en uppgradering!', 'success', '0');
         } else {
-            message('Du har inte råd.', 'warning');
+            message('Du har inte råd.', 'warning', '0');
         }
     });
 
@@ -542,9 +557,9 @@ function createCard(upgrade) {
     return item;
 };
 
-function createAchivementCard(name, description) {
+function createAchievementCard(name, description) {
     const div = document.createElement('div');
-    div.classList.add('unlocked_achievement');
+    div.classList.add('unlocked-achievement');
     const h4 = document.createElement('h4');
     h4.textContent = name;
     const p = document.createElement('p');
@@ -567,8 +582,8 @@ function message(text, type, description) {
     p.textContent = text;
     msgbox.appendChild(p);
     if (type === 'achievement') {
-        a = createAchivementCard(text, description);
-        achivementsAcquired.append(a);
+        a = createAchievementCard(text, description);
+        achievementsAcquired.append(a);
     }
     setTimeout(() => {
         p.parentNode.removeChild(p);

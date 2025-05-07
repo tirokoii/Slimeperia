@@ -65,14 +65,12 @@ h1 {
 }
 
 #game-button:hover {
-    width: 26vw;
-    height: 26vw;
+    scale: 0.98;
     transition: 0.1s;
 }
 
 #game-button:active {
-    width: 24vw;
-    height: 24vw;
+    scale: 0.97;
     transition: 0.1s ease-in-out;
 }
 
@@ -449,29 +447,32 @@ h3 {
     width: 4ch;
 }
 
-.achievementTracker:hover img {
-    width: 3.8ch;
+.achievementTracker:hover #trophy {
+    scale: 0.9;
 }
 
-.achievement_box {
+.achievement-box {
     border-top: 0.5ch solid var(--color-glowing-green);
     position: fixed;
     bottom: 0vh;
     left: 0vw;
     font-family: "Kode Mono", monospace;
     overflow: scroll;
-    background-color: var(--color-blue);
+    background-color: var(--color-dark);
     color: var(--color-light);
     height: 32vh;
     width: 31.5vw;
     display: none;
 }
 
-.achievementTracker:hover .achievement_box {
-    display: block;
+.achievement-box h2 {
+    padding-left: 2ch;
+    margin-top: 1ch;
+    padding-bottom: 0.5ch;
+    border-bottom: 0.2ch solid var(--color-light-green);
 }
 
-.unlocked_achievement {
+.unlocked-achievement {
     width: auto;
     height: 9.5ch;
     border: 0.5ch solid var(--color-dark-green);
@@ -479,7 +480,7 @@ h3 {
     padding-top: 2vh;
 }
 
-.unlocked_achievement * {
+.unlocked-achievement * {
     margin-left: 2vw;
     width: 20vw;
 }
