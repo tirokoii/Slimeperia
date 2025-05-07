@@ -251,7 +251,6 @@ li {
     width: 30%;
     height: auto;
     margin-top: 2ch;
-    scrollbar-color: var(--color-dark);
 }
 
 h3 {
@@ -451,22 +450,30 @@ h3 {
 }
 
 .achievementTracker:hover img {
-    width: 3.9ch;
+    width: 3.8ch;
 }
 
 .achievement_box {
+    border-top: 0.5ch solid var(--color-glowing-green);
+    position: fixed;
+    bottom: 0vh;
+    left: 0vw;
     font-family: "Kode Mono", monospace;
-    overflow-y: scroll;
-    position: absolute;
-    margin-top: 4vh;
-    left: -3vw;
+    overflow: scroll;
     background-color: var(--color-blue);
     color: var(--color-light);
-    height: auto;
-    width: 32vw;
+    height: 32vh;
+    width: 31.5vw;
+    display: none;
+}
+
+.achievementTracker:hover .achievement_box {
+    display: block;
 }
 
 .unlocked_achievement {
+    width: auto;
+    height: 9.5ch;
     border: 0.5ch solid var(--color-dark-green);
     padding-bottom: 2vh;
     padding-top: 2vh;
@@ -477,6 +484,9 @@ h3 {
     width: 20vw;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
 
 @media only screen and (max-width: 1025px) {
     .container-left {
