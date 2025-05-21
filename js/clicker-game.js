@@ -47,20 +47,38 @@ let achievementList = [
     {
         name: 'Stor byggarn',
         description: 'Bygg 1 maskin',
-        requiredUpgrades: 1,
+        requiredMachines: 1,
         acquired: false,
     },
     {
         name: 'Galen vetenskaps man',
         description: 'Bygg 100 maskiner',
-        requiredUpgrades: 100,
+        requiredMachines: 100,
         acquired: false,
     },
     {
         name: 'Tillbaka till fabriken',
         description: 'Bygg 1000 maskiner',
-        requiredUpgrades: 1000,
+        requiredMachines: 1000,
         acquired: false,
+    },
+    {
+        name: 'Upgraderings Good',
+        description: 'Köp din allra första upgradering',
+        requiredUpgrades: 1,
+        acquired:false
+    },
+    {
+        name: '!!!',
+        description: 'Köp 10 upgraderingar',
+        requiredUpgrades: 10,
+        acquired:false
+    },
+    {
+        name: 'Ojoj',
+        description: 'Köp din allra första upgradering',
+        requiredUpgrades: 1000,
+        acquired:false
     },
     {
         name: 'En otydlig start',
@@ -210,6 +228,13 @@ function step(timestamp) {
             achievement.acquired = true;
             message(achievement.name, 'achievement', achievement.description);
             return false;
+        } else if (
+            achievement.requiredMachines &&
+            acquiredMachines >= achievement.requiredMachines
+        ) {
+            achievement.acquired = true;
+            message(achievement.name, 'achievement', achievement.description);
+            return false;
         }
         return true;
     });
@@ -330,13 +355,13 @@ upgrades = [
     {
         name: 'Mer pengar',
         image: '10-smiling.png',
-        cost: 1500,
+        cost: 3000,
         amount: 160,
     },
     {
         name: 'Mer pengar 2',
         image: '100-smiling.png',
-        cost: 2200,
+        cost: 60000,
         amount: 250,
     },
     {
@@ -348,25 +373,25 @@ upgrades = [
     {
         name: 'Hastighet grad 1',
         image: 'speed-one.png',
-        cost: 150,
+        cost: 1500,
         clicks: 10,
     },
     {
         name: 'Hastighet grad 2',
         image: 'speed-two.png',
-        cost: 500,
+        cost: 5000,
         clicks: 100,
     },
     {
         name: 'Hatsighet grad 3',
         image: 'speed-three.png',
-        cost: 1500,
+        cost: 15000,
         clicks: 300,
     },
     {
         name: 'Hatsighet grad 4',
         image: 'speed-four.png',
-        cost: 12000,
+        cost: 1200000,
         clicks: 1000,
     },
 ];
@@ -385,7 +410,7 @@ machines = [
         name: 'Slime blandare',
         image: 'slime-mixer-cement.png',
         des: 'Det kan inte bli bättre än så här',
-        cost: 130,
+        cost: 1300,
         amount: 20,
         bought: 0
     },
@@ -393,7 +418,7 @@ machines = [
         name: 'Modifierad mixer',
         image: 'mixer-modified.png',
         des: 'Ett ännu bättre sätt att blanda på',
-        cost: 600,
+        cost: 6000,
         amount: 50,
         bought: 0
     },
@@ -401,15 +426,15 @@ machines = [
         name: 'Bladblandare',
         image: 'bladblandare.png',
         des: 'Va?',
-        cost: 1000,
+        cost: 10000,
         amount: 140,
         bought: 0
     },    {
         name: 'Bladblandare 2.0',
         image: 'bladblandare-modified.png',
         des: 'Seriöst? Ett bättre sätt...',
-        cost: 4000,
-        amount: 200,
+        cost: 400000,
+        amount: 300,
         bought: 0
     },
 ]
@@ -476,7 +501,6 @@ function createMachineCard(machine) {
 
     item.addEventListener('click', (e) => {
         if (money >= machine.cost) {
-            acquiredUpgrades++;
             acquiredMachines++;
             money -= machine.cost;
             machine.cost *= 1.2;
@@ -535,9 +559,11 @@ function createCard(upgrade) {
     item.addEventListener('click', (e) => {
         if (money >= upgrade.cost) {
             acquiredUpgrades++;
-            if (upgrade.clicks) {
+            if (upgrade.requiredUpgrades) {
+                acquiredUpgrades++;
+            } else if (upgrade.clicks) {
                 acquiredClicks++;
-            };
+            }
             money -= upgrade.cost;
             upgrade.cost *= 1.5;
             upgrade.cost = Math.round(upgrade.cost);

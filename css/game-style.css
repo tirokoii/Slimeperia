@@ -439,8 +439,9 @@ h3 {
 }
 
 .achievementTracker {
-    position: absolute;
-    bottom: 35vh;
+    position: fixed;
+    bottom: 37%;
+    left: 2vw;
 }
 
 .achievementTracker img {
@@ -494,6 +495,11 @@ h3 {
         width: 30%;
     }
 
+    .stats ul {
+        margin-left: 6vw;
+
+    }
+
     .machine {
         height: 12vw;
     }
@@ -528,6 +534,15 @@ h3 {
         width: 20vw;
         height: 15vh;
         font-size: 200%;
+    }
+
+    .achievement-box {
+        width: 26vw;
+        bottom: -10vh;
+    }
+
+    .achievementTracker {
+        bottom: 20%;
     }
 
 }

@@ -56,8 +56,19 @@ Problemet inte rikitgt löst
 
 Phone-versionen är inte klar ännu. Men mitt spel är inte tänkt att spelas på telefon. Den kommer när jag orkar
 
+### List problem
+
+Jag ville implementera en lista som samlar de "utmärkelserna" spelaren har uppnått under sin spel gång. Och sedan göra den tillgänglig för spelaren att hitta dem genom att trycka på en trophy.
+Jag började med att placera ut dem som jag ville att det skulle se ut i html mappen, länkade trophyns och boxens html id'n till javascript filen för att sedan kunna använda dem för att clicka och lägga till element från java. Det första jag gjorde var att skapa en ny function för skapandet av "korten", den heter createAchievementCard, sedan skapande jag elementen jag ville skulle ingå i korten och gav dem css klasser.
+Nästa steg var att få den att skriva ut korten med text. I slut ändan lade jag till parametrar och lade in functionen i message functionen, för att få den att lägga till dem när meddelandena dök up. Men när jag gjorde det lade den även till fel meddelandena och köpen, därför skrev jag ett villkor som gjorde så att om typen var achivement skulle den skapa.
+
 # Till nästa gång:
-- Achivements (machines), acquired machines (messege)
+- Achivements (machines), acquired machines (messege) 
 - Acquired achivements list, (java), appear after acquired in list.
 - Earnings, (math), graphs
 - Phone version
+- Trophy scaling problem
+
+Fixat: 
+Acquired achivements list
+Achivements (acquired machines)
